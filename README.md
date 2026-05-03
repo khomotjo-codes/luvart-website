@@ -31,19 +31,6 @@ Luchsia is a wholly-owned IaaS (Infrastructure as a Service) subsidiary providin
 *   **Stack**: Engineered across Rust, Go, Python, C++, Lua, and Flutter.
 *   **Integrity**: Ad-free, tracker-free, and privacy-first by design.
 
-## 🗺 Language Roadmap (Tier 1)
-| Language | Speakers | Focus |
-|----------|----------|-------|
-| **Swahili** | 200M+ | East African Lingua Franca |
-| **Hausa** | 80M+ | West African & global diaspora reach |
-| **Yoruba** | 45M+ | Active diaspora & rich oral tradition |
-| **Amharic** | 35M+ | Horn of Africa & specific US diaspora |
-| **Zulu** | 12M+ | South African indigenous knowledge|
-
----
-
-**🔭 Status**: Conceptual Phase (Strategic execution following Luvart scaling).
-
 **Built in South Africa. Built for Africa. Built for everyone Africa produced.**
 
 © 2026 THE LUVART PLATFORMS (PTY) LTD. Registered in South Africa.
