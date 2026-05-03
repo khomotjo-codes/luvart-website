@@ -1,28 +1,49 @@
 # THE LUVART PLATFORMS (PTY) LTD
 
-A South African technology company building cultural digital infrastructure for Africa and the world[cite: 1]. Founded on the principle of **Ubuntu**—"I am because we are"—the company develops privacy-first platforms where heritage is preserved rather than monetized[cite: 1].
+A South African technology company building cultural digital infrastructure for Africa and the world. We believe that technology should serve culture, not the other way around. Our mission is rooted in **Ubuntu**—the belief that our humanity is bound together: *I am because we are*.
 
-## 🚀 Our Products
+## 🌍 The Ecosystem
 
-### 1. Luvart
-The core cultural social platform designed for authentic connection[cite: 1]. It serves as a home for traditions, ceremonies, and stories that mainstream platforms often overlook[cite: 1]. 
-*   **Ad-Free & Privacy-First**: No data selling or third-party tracking[cite: 1].
-*   **Cultural Preservation**: Built to document living traditions and indigenous languages[cite: 1].
+### **1. Luvart — Share Your Culture, Connect Through Ubuntu**
+Luvart is a global culture-sharing platform where heritage, tradition, and authentic human connection come first. In a digital world that isolates, Luvart connects; in a world that forgets, Luvart preserves.
 
-### 2. Setso
-A multilingual cultural knowledge search engine currently in development[cite: 1]. 
-*   **Search as You Are**: Allows users to search for knowledge in the language they think in, starting with Tier 1 languages like Swahili, Hausa, Yoruba, Amharic, and Zulu[cite: 1].
-*   **Cultural Context**: Uses dedicated layers to resolve proverbs and local terminology without requiring English translation[cite: 1].
+*   **Cultural Stories**: A dedicated space for real cultural life—traditional clothing, music, ceremonies, and food.
+*   **Cultural Circles**: Communities built around heritage, language, and shared tradition.
+*   **Indigenous Language Preservation**: A living archive for songs, greetings, and stories in mother tongues.
+*   **Culture Exchange Feed**: A window into living traditions, filterable by language, theme, or location.
+*   **Future Roadmap**: Includes **LuvMap** (interactive cultural mapping) and a **Cultural Marketplace** for authentic creator commerce.
 
-### 3. Luchsia
-A wholly-owned Infrastructure as a Service (IaaS) subsidiary[cite: 1].
-*   **Privacy Infrastructure**: Provides the encrypted microservices layer that powers both Luvart and Setso[cite: 1].
-*   **Data Sovereignty**: Ensures no reliance on third-party backend providers, maintaining absolute control over community data[cite: 1].
+### **2. Setso — Tradition, in every tongue it was born in**
+Setso is a fundamentally different retrieval system built from the ground up on African epistemological foundations. It allows users to search *as they are*—in the language they think in—while Setso handles the translation and cultural context.
 
-## 🛠 Technical Overview
-The ecosystem is built with a focus on high-performance and secure architecture:
-*   **Stack**: Distributed systems built across Rust, Go, Python, C++, Lua, and Flutter[cite: 1].
-*   **Encryption**: Features Signal Protocol-based E2EE for secure messaging[cite: 1].
+*   **Linguistic & Dialect Depth**: Identifies regional variations and normalizes queries without losing specificity.
+*   **Cultural Context Layer**: Resolves proverbs, local terminology, and regional concepts—such as the cultural significance of the "Nkonjane" bird.
+*   **Knowledge Graph Layer**: Traverses complex relationships between heritage records and living traditions across African communities.
+*   **Tantivy-Powered Retrieval**: High-performance full-text search ranked by cultural relevance.
+
+### **3. Luchsia — Infrastructure Subsidiary**
+Luchsia is a wholly-owned IaaS (Infrastructure as a Service) subsidiary providing the privacy-first backbone for the entire ecosystem.
+*   **Data Sovereignty**: We manage our own microservices to ensure no community data is ever sold or tracked by third parties.
+*   **Security**: Built with the Signal Protocol for industry-leading End-to-End Encryption (E2EE).
+
+## 🛠 Technical Depth
+*   **Architecture**: 19 distributed microservices designed for high-performance data sovereignty.
+*   **Stack**: Engineered across Rust, Go, Python, C++, Lua, and Flutter.
+*   **Integrity**: Ad-free, tracker-free, and privacy-first by design.
+
+## 🗺 Language Roadmap (Tier 1)
+| Language | Speakers | Focus |
+|----------|----------|-------|
+| **Swahili** | 200M+ | East African Lingua Franca |
+| **Hausa** | 80M+ | West African & global diaspora reach |
+| **Yoruba** | 45M+ | Active diaspora & rich oral tradition |
+| **Amharic** | 35M+ | Horn of Africa & specific US diaspora |
+| **Zulu** | 12M+ | South African indigenous knowledge|
 
 ---
-© 2026 THE LUVART PLATFORMS (PTY) LTD. Built in South Africa[cite: 1].
+
+**🔭 Status**: Conceptual Phase (Strategic execution following Luvart scaling).
+
+**Built in South Africa. Built for Africa. Built for everyone Africa produced.**
+
+© 2026 THE LUVART PLATFORMS (PTY) LTD. Registered in South Africa.
