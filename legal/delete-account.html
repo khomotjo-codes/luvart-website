@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Deletion — Luvart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--earth:#1a0e00;--rust:#c4441a;--gold:#e8a020;--sand:#f5e6c8;--warm-white:#fdf8f0;--deep:#0d0700;--text-muted:#6b4f2a;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--earth);overflow-x:hidden;line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(253,248,240,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,68,26,0.12);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;height:56px;}
+  .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--rust);text-decoration:none;letter-spacing:-0.02em;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-back:hover{color:var(--rust);}
+  .page-hero{background:var(--earth);padding:6rem 1.25rem 2.5rem;position:relative;overflow:hidden;}
+  .page-hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px),repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px);pointer-events:none;}
+  .page-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+  .page-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+  .page-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,6vw,3.5rem);color:var(--warm-white);line-height:1.05;margin-bottom:1rem;}
+  .page-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:rgba(245,230,200,0.35);letter-spacing:0.1em;}
+  .content-wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem 5rem;}
+  .content-wrap h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--earth);margin-top:3rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(26,14,0,0.08);}
+  .content-wrap h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--rust);margin-top:2rem;margin-bottom:0.6rem;}
+  .content-wrap p{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:1rem;}
+  .content-wrap ul,.content-wrap ol{padding-left:1.5rem;margin-bottom:1rem;}
+  .content-wrap li{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.4rem;}
+  .content-wrap strong{font-weight:500;color:var(--earth);}
+  .content-wrap a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(196,68,26,0.3);transition:border-color 0.2s;}
+  .content-wrap a:hover{border-color:var(--rust);}
+  .content-wrap hr{border:none;border-top:1px solid rgba(26,14,0,0.08);margin:2.5rem 0;}
+  .content-wrap table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;}
+  .content-wrap th{background:var(--earth);color:var(--gold);font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1rem;text-align:left;}
+  .content-wrap td{padding:0.75rem 1rem;border-bottom:1px solid rgba(26,14,0,0.06);color:var(--text-muted);font-weight:300;vertical-align:top;}
+  .content-wrap tr:last-child td{border-bottom:none;}
+  .content-wrap tr:nth-child(even) td{background:rgba(245,230,200,0.3);}
+  /* Steps */
+  .steps{counter-reset:step;margin:1.5rem 0;}
+  .step{display:flex;gap:1.25rem;margin-bottom:1.5rem;align-items:flex-start;}
+  .step-num{counter-increment:step;content:counter(step);flex-shrink:0;width:2rem;height:2rem;background:var(--earth);color:var(--gold);font-family:'Space Mono',monospace;font-size:0.7rem;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+  .step-body h3{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;color:var(--earth);margin:0 0 0.3rem;}
+  .step-body p{font-size:0.9rem;font-weight:300;color:var(--text-muted);margin:0;line-height:1.7;}
+  .warning-box{background:rgba(196,68,26,0.06);border:1px solid rgba(196,68,26,0.2);border-left:4px solid var(--rust);padding:1.25rem 1.5rem;margin:2rem 0;border-radius:0 2px 2px 0;}
+  .warning-box p{font-size:0.88rem;color:var(--earth);margin:0;font-weight:400;}
+  /* FAQ */
+  .faq-item{border-bottom:1px solid rgba(26,14,0,0.08);}
+  .faq-q{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;color:var(--earth);padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;list-style:none;user-select:none;}
+  .faq-q::-webkit-details-marker{display:none;}
+  .faq-q::after{content:'+';font-family:'Space Mono',monospace;font-size:1rem;color:var(--rust);flex-shrink:0;transition:transform 0.2s;}
+  details[open] .faq-q::after{transform:rotate(45deg);}
+  .faq-a{padding:0 0 1.1rem;}
+  .faq-a p{font-size:0.9rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.5rem;}
+  .legal-footer{background:var(--earth);padding:2.5rem 1.25rem;text-align:center;}
+  .legal-footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--warm-white);margin-bottom:0.5rem;}
+  .legal-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:1.25rem 0;}
+  .legal-footer-links a{font-family:'Space Mono',monospace;font-size:0.62rem;color:rgba(245,230,200,0.3);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .legal-footer-links a:hover{color:var(--gold);}
+  .legal-footer-copy{font-family:'Space Mono',monospace;font-size:0.6rem;color:rgba(245,230,200,0.15);letter-spacing:0.08em;margin-top:1rem;}
+  @media(min-width:768px){.nav-inner{padding:0 3rem;}.page-hero{padding:7rem 3rem 3rem;}.content-wrap{padding:4rem 3rem 6rem;}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="../index.html" class="nav-logo">Luvart</a><a href="../index.html" class="nav-back">← Back to site</a></div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Account Deletion</h1>
+    <p class="page-meta">Last Updated: 9 March 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>At Luvart, we believe in <strong>digital sovereignty</strong> — your absolute right to leave the platform and have your data removed at any time, no questions asked.</p>
+  <p>This guide explains how to permanently delete your account and what happens to your data when you do.</p>
+
+  <hr>
+
+  <h2>Before You Delete</h2>
+
+  <div class="warning-box">
+    <p>⚠ &nbsp; Deleting your account is <strong>permanent and irreversible</strong> after the 30-day grace period.</p>
+  </div>
+
+  <p>Before proceeding, you may want to:</p>
+  <ul>
+    <li><strong>Download your data</strong> — Request a data export by contacting us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>DATA EXPORT — [your username]</strong>. We will respond within 30 days.</li>
+    <li><strong>Cancel your Premium subscription</strong> — Deleting your account does not automatically cancel a subscription billed through your app store. Cancel through your app store's subscription management settings first.</li>
+  </ul>
+
+  <hr>
+
+  <h2>How to Delete Your Account</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Open Settings</h3>
+        <p>Navigate to your <strong>Profile</strong> page in the Luvart app. Tap the <strong>Settings</strong> icon in the top-right corner of the screen.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Go to Account Management</h3>
+        <p>In the Settings menu, tap <strong>"Account"</strong>. This will take you to your account management page where you can view and manage your primary account details.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Request Deletion</h3>
+        <p>Scroll to the bottom of the Account page. Tap the <strong>"Delete account"</strong> button.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Confirm</h3>
+        <p>A confirmation prompt will appear. Once you confirm, your account is <strong>immediately deactivated</strong>, your profile and content are hidden from the community, and the 30-day grace period begins.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>What Happens to Your Data</h2>
+
+  <h3>Immediate Effects</h3>
+  <p>As soon as you confirm deletion, your profile becomes invisible to other users, your posts and Cultural Stories are hidden, your Cultural Circle memberships are ended, and other users can no longer search for or interact with your account.</p>
+
+  <h3>30-Day Grace Period</h3>
+  <p>Your data is retained in a secure, encrypted state for <strong>30 days</strong> after your deletion request. This allows you to recover your account if you deleted it accidentally.</p>
+  <p><strong>Changed your mind?</strong> Contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>ACCOUNT RECOVERY — [your username]</strong>.</p>
+
+  <h3>Permanent Deletion — After 30 Days</h3>
+  <p>After the 30-day grace period, your data is <strong>permanently and irreversibly deleted</strong> from our active systems, including your profile information, posts, photos, videos, Cultural Circle memberships, and analytics data. This action cannot be undone.</p>
+
+  <h3>What We Retain After Deletion</h3>
+  <table>
+    <thead><tr><th>Data Type</th><th>Retention After Deletion</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>Moderation and audit records</td><td>Up to 3 years</td><td>Legal obligation and platform safety</td></tr>
+      <tr><td>Security and access logs</td><td>Up to 12 months</td><td>Security and fraud prevention</td></tr>
+      <tr><td>Anonymised, aggregated analytics</td><td>Indefinitely</td><td>No personal information retained</td></tr>
+      <tr><td>Legal hold data</td><td>Duration of legal hold</td><td>Compliance with legal proceedings</td></tr>
+    </tbody>
+  </table>
+  <p>This retained data does not include your profile, your content, or any information that identifies you to other users.</p>
+
+  <h3>Your Cultural Contributions</h3>
+  <p>If you opted in to contribute content to Luvart's cultural preservation features or to Setso, your withdrawal of consent is processed as part of account deletion. Contributed content will be removed from the cultural corpus within <strong>30 days</strong> of permanent deletion.</p>
+
+  <h3>Private Messages</h3>
+  <p><strong>Standard users:</strong> Your sent messages may remain visible to recipients on their devices after your account is deleted. They will no longer be associated with your name or profile.</p>
+  <p><strong>Premium users (E2EE Messaging):</strong> Because E2EE messages are encrypted on your device and decrypted only on your recipient's device, Luvart does not hold readable copies of your messages. Luvart cannot delete messages from recipients' devices.</p>
+
+  <hr>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <details class="faq-item">
+    <summary class="faq-q">Can I temporarily deactivate my account instead of deleting it?</summary>
+    <div class="faq-a">
+      <p>Temporary deactivation is not currently available. If you need a break from Luvart, you can adjust your notification settings and privacy controls without deleting your account.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">What happens to my Premium subscription when I delete my account?</summary>
+    <div class="faq-a">
+      <p>Deleting your account does not automatically cancel your Premium subscription if it was purchased through an app store. You must cancel your subscription separately through your app store before deleting your account to avoid further charges. Luvart does not issue refunds for unused subscription time resulting from account deletion, except where required by applicable consumer protection law.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">Will my username be available to others after I delete my account?</summary>
+    <div class="faq-a">
+      <p>Deleted usernames may become available to new users after a reasonable period following permanent deletion. We cannot guarantee that your username will be held indefinitely.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">I deleted my account but I am still being charged for Premium.</summary>
+    <div class="faq-a">
+      <p>If you are being charged after deleting your account, the subscription was likely purchased through your app store and must be cancelled there. Contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>BILLING ISSUE — [your username]</strong> and we will assist you.</p>
+    </div>
+  </details>
+
+  <hr>
+
+  <h2>Need Help?</h2>
+  <p>If you experience any difficulty deleting your account or have questions about this process, contact us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a><br>
+  <strong>Website:</strong> <a href="https://luvart.luchsia.com" target="_blank" rel="noopener">luvart.luchsia.com</a><br>
+  We will respond within <strong>48 hours</strong>.</p>
+
+</div>
+
+<footer class="legal-footer">
+  <div class="legal-footer-brand">THE LUVART PLATFORMS (PTY) LTD</div>
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="community-guidelines.html">Community Guidelines</a>
+    <a href="safety-security-faq.html">Safety &amp; Security FAQ</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </div>
+  <div class="legal-footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</div>
+</footer>
+</body>
+</html>

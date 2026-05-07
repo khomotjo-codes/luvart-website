@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Luvart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --earth:#1a0e00;--rust:#c4441a;--gold:#e8a020;--sand:#f5e6c8;--warm-white:#fdf8f0;--deep:#0d0700;--text-muted:#6b4f2a; }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--earth);overflow-x:hidden;line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(253,248,240,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,68,26,0.12);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;height:56px;}
+  .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--rust);text-decoration:none;letter-spacing:-0.02em;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-back:hover{color:var(--rust);}
+  .page-hero{background:var(--earth);padding:6rem 1.25rem 2.5rem;position:relative;overflow:hidden;}
+  .page-hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px),repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px);pointer-events:none;}
+  .page-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+  .page-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+  .page-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,6vw,3.5rem);color:var(--warm-white);line-height:1.05;margin-bottom:1rem;}
+  .page-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:rgba(245,230,200,0.35);letter-spacing:0.1em;}
+  .content-wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem 5rem;}
+  .content-wrap h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--earth);margin-top:3rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(26,14,0,0.08);}
+  .content-wrap h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--rust);margin-top:2rem;margin-bottom:0.6rem;}
+  .content-wrap p{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:1rem;}
+  .content-wrap ul,.content-wrap ol{padding-left:1.5rem;margin-bottom:1rem;}
+  .content-wrap li{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.4rem;}
+  .content-wrap strong{font-weight:500;color:var(--earth);}
+  .content-wrap a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(196,68,26,0.3);transition:border-color 0.2s;}
+  .content-wrap a:hover{border-color:var(--rust);}
+  .content-wrap hr{border:none;border-top:1px solid rgba(26,14,0,0.08);margin:2.5rem 0;}
+  .content-wrap table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;}
+  .content-wrap th{background:var(--earth);color:var(--gold);font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1rem;text-align:left;}
+  .content-wrap td{padding:0.75rem 1rem;border-bottom:1px solid rgba(26,14,0,0.06);color:var(--text-muted);font-weight:300;vertical-align:top;}
+  .content-wrap tr:last-child td{border-bottom:none;}
+  .content-wrap tr:nth-child(even) td{background:rgba(245,230,200,0.3);}
+  .legal-footer{background:var(--earth);padding:2.5rem 1.25rem;text-align:center;}
+  .legal-footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--warm-white);margin-bottom:0.5rem;}
+  .legal-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:1.25rem 0;}
+  .legal-footer-links a{font-family:'Space Mono',monospace;font-size:0.62rem;color:rgba(245,230,200,0.3);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .legal-footer-links a:hover{color:var(--gold);}
+  .legal-footer-copy{font-family:'Space Mono',monospace;font-size:0.6rem;color:rgba(245,230,200,0.15);letter-spacing:0.08em;margin-top:1rem;}
+  @media(min-width:768px){.nav-inner{padding:0 3rem;}.page-hero{padding:7rem 3rem 3rem;}.content-wrap{padding:4rem 3rem 6rem;}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="../index.html" class="nav-logo">Luvart</a><a href="../index.html" class="nav-back">← Back to site</a></div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Terms of Service</h1>
+    <p class="page-meta">Effective Date: 18 August 2024 &nbsp;·&nbsp; Last Updated: 9 March 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <p>Welcome to <strong>Luvart</strong>. These Terms of Service govern your access to and use of the Luvart platform, mobile application, and all related services provided by <strong>The Luvart Platforms (Pty) Ltd</strong> ("Company," "we," "us," or "our"), a company registered in the Republic of South Africa.</p>
+  <p>By creating an account or using Luvart, you agree to be bound by these Terms, our <a href="privacy-policy.html">Privacy Policy</a>, and our <a href="community-guidelines.html">Community Guidelines</a>. If you do not agree, you may not use the platform.</p>
+
+  <hr>
+
+  <h2>1. Eligibility and Account Security</h2>
+  <h3>1.1 Age Requirements</h3>
+  <table>
+    <thead><tr><th>Market</th><th>Minimum Age</th><th>Legal Basis</th></tr></thead>
+    <tbody>
+      <tr><td>South Africa</td><td>13 years</td><td>POPIA</td></tr>
+      <tr><td>India</td><td>18 years, or 13 with verifiable parental consent</td><td>DPDP Act, 2023</td></tr>
+      <tr><td>Mexico</td><td>13 years</td><td>LFPDPPP</td></tr>
+      <tr><td>Indonesia</td><td>13 years</td><td>PP 71/2019</td></tr>
+      <tr><td>All other markets</td><td>13 years, or age of digital consent in your jurisdiction</td><td>Applicable local law</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.2 Account Responsibility</h3>
+  <p>You are solely responsible for maintaining the confidentiality of your account credentials, all activity that occurs under your account, and ensuring your account information is accurate and current. Notify us immediately at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> if you become aware of any unauthorised access.</p>
+
+  <h3>1.3 One Account Per Person</h3>
+  <p>You may not create multiple accounts to evade enforcement actions or misrepresent your identity. Luvart is built on authentic identity and community trust.</p>
+
+  <hr>
+
+  <h2>2. User Content and Cultural Sovereignty</h2>
+  <h3>2.1 Your Ownership</h3>
+  <p><strong>You retain full ownership of all content you post on Luvart.</strong> This includes your photos, videos, written posts, audio recordings, indigenous language clips, and any other cultural material you share. Luvart does not claim ownership of your content or your cultural heritage.</p>
+
+  <h3>2.2 Licence to Luvart</h3>
+  <p>By posting content on Luvart, you grant The Luvart Platforms (Pty) Ltd a <strong>limited, non-exclusive, royalty-free, worldwide, revocable licence</strong> to host, store, display, reproduce, and distribute your content <strong>solely</strong> for the purpose of operating the Luvart platform. This licence terminates when you delete the content or your account.</p>
+
+  <h3>2.3 Cultural Preservation and Setso — Opt-In Only</h3>
+  <p>Your content will <strong>never</strong> be contributed to Setso or used for cultural preservation purposes without your <strong>explicit, separate, informed consent</strong>. This consent is entirely voluntary and can be withdrawn at any time through your account settings.</p>
+
+  <h3>2.4 No External AI Training</h3>
+  <p>Your content — including cultural stories, voice recordings, and indigenous language clips — will not be used to train external artificial intelligence systems or large language models without your explicit, separate, informed consent.</p>
+
+  <h3>2.5 Prohibited Content</h3>
+  <p>You agree not to post content that is unlawful, defamatory, or fraudulent; promotes or incites violence or hatred; involves unauthorised use of sacred cultural symbols; infringes intellectual property rights; contains sexually explicit material; or endangers minors in any way.</p>
+
+  <h3>2.6 Platform Integrity</h3>
+  <p>You agree not to scrape or harvest content from Luvart by automated means, use bots to create accounts or generate engagement, attempt to circumvent Luvart's security systems, or reverse engineer any part of the platform.</p>
+
+  <hr>
+
+  <h2>3. Luvart Premium</h2>
+  <h3>3.1 Premium Subscription</h3>
+  <p>Luvart offers a <strong>Premium subscription</strong> with enhanced features including: Verified Badge, End-to-End Encrypted Messaging (Signal Protocol, in development), Advanced Profile Analytics, High-Quality Media Downloads, and Early Access to new features.</p>
+
+  <h3>3.2 Billing and Payment</h3>
+  <p>Premium subscriptions are billed on your selected cycle (monthly or annually). We reserve the right to change subscription pricing with <strong>30 days' notice</strong> to existing subscribers.</p>
+
+  <h3>3.3 Cancellation</h3>
+  <p>You may cancel your Premium subscription at any time through your account settings or app store. You will retain access to Premium features until the end of your current billing period. No partial refunds are issued for unused time, except where required by applicable consumer protection law.</p>
+
+  <h3>3.4 Free Tier</h3>
+  <p>Luvart's core features — Cultural Stories, Cultural Circles, the Culture Exchange Feed, and indigenous language preservation tools — remain free and will continue to be available to all users. Premium is an enhancement, not a paywall.</p>
+
+  <hr>
+
+  <h2>4. Luvart's Intellectual Property</h2>
+  <p>All rights, title, and interest in and to the Luvart platform — excluding user-generated content — are the exclusive property of <strong>The Luvart Platforms (Pty) Ltd</strong>. You may not copy, reproduce, modify, or reverse engineer any part of the platform without our prior written consent.</p>
+
+  <hr>
+
+  <h2>5. Infrastructure</h2>
+  <p>Luvart's platform is built and operated on infrastructure provided by <strong>Luchsia</strong>, a wholly-owned subsidiary of The Luvart Platforms (Pty) Ltd. Your contractual relationship is with The Luvart Platforms (Pty) Ltd, not with Luchsia.</p>
+
+  <hr>
+
+  <h2>6. Moderation and Enforcement</h2>
+  <h3>6.1 Our Right to Moderate</h3>
+  <p>We reserve the right to remove content, issue warnings, suspend accounts, or permanently remove users who violate these Terms or our Community Guidelines.</p>
+
+  <h3>6.2 Appeals</h3>
+  <p>All moderation decisions may be appealed. The appeals process is described in our <a href="safety-security-faq.html">Safety and Security FAQ</a>.</p>
+
+  <hr>
+
+  <h2>7. Termination</h2>
+  <h3>7.1 Termination by You</h3>
+  <p>You may delete your account at any time through the app settings. Upon deletion, your data will be handled in accordance with our Privacy Policy.</p>
+
+  <h3>7.2 Termination by Luvart</h3>
+  <p>We reserve the right to suspend or terminate your access to Luvart without prior notice if you violate these Terms, pose a security risk, engage in fraudulent or illegal conduct, or are required to be removed by applicable law.</p>
+
+  <hr>
+
+  <h2>8. Disclaimers and Limitation of Liability</h2>
+  <h3>8.1 Service Provided As-Is</h3>
+  <p>Luvart is provided "as is" and "as available" without warranties of any kind, express or implied.</p>
+
+  <h3>8.2 Limitation of Liability</h3>
+  <p>To the maximum extent permitted by applicable law, The Luvart Platforms (Pty) Ltd shall not be liable for any indirect, incidental, special, consequential, or punitive damages. Nothing in these Terms limits our liability for death or personal injury caused by our negligence, fraud, or any liability that cannot be excluded by law.</p>
+
+  <h3>8.3 Consumer Protection</h3>
+  <p>Nothing in these Terms is intended to exclude or limit rights you have under mandatory consumer protection laws, including South Africa's <strong>Consumer Protection Act 68 of 2008</strong>.</p>
+
+  <hr>
+
+  <h2>9. Indemnification</h2>
+  <p>You agree to indemnify and hold harmless The Luvart Platforms (Pty) Ltd from any claims, damages, losses, and legal fees arising from your breach of these Terms, your violation of the rights of any third party, or content you post on Luvart that gives rise to a legal claim.</p>
+
+  <hr>
+
+  <h2>10. Dispute Resolution</h2>
+  <h3>10.1 Tier 1 — Direct Negotiation</h3>
+  <p>Contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with subject line <strong>DISPUTE — [your username]</strong>. We will respond within 14 days.</p>
+
+  <h3>10.2 Tier 2 — Mediation</h3>
+  <p>If direct negotiation fails within 30 days, either party may refer the dispute to mediation administered by the <strong>Arbitration Foundation of Southern Africa (AFSA)</strong>.</p>
+
+  <h3>10.3 Tier 3 — Litigation</h3>
+  <p>If mediation is unsuccessful, disputes may be referred to the competent courts of the <strong>Republic of South Africa</strong>.</p>
+
+  <h3>10.5 Governing Law</h3>
+  <p>These Terms are governed by the laws of the <strong>Republic of South Africa</strong>, without regard to conflict of law principles.</p>
+
+  <hr>
+
+  <h2>11. Changes to These Terms</h2>
+  <p>When we make material changes, we will notify you through the app or by email at least <strong>14 days</strong> before the changes take effect. Continued use of Luvart after the effective date constitutes acceptance.</p>
+
+  <hr>
+
+  <h2>12. Contact</h2>
+  <p><strong>The Luvart Platforms (Pty) Ltd</strong><br>
+  Attention: Legal<br>
+  Email: <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a><br>
+  Website: <a href="https://luvart.luchsia.com" target="_blank" rel="noopener">luvart.luchsia.com</a></p>
+</div>
+
+<footer class="legal-footer">
+  <div class="legal-footer-brand">THE LUVART PLATFORMS (PTY) LTD</div>
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="community-guidelines.html">Community Guidelines</a>
+    <a href="safety-security-faq.html">Safety & Security FAQ</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </div>
+  <div class="legal-footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Guidelines — Luvart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--earth:#1a0e00;--rust:#c4441a;--gold:#e8a020;--sand:#f5e6c8;--warm-white:#fdf8f0;--deep:#0d0700;--text-muted:#6b4f2a;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--earth);overflow-x:hidden;line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(253,248,240,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,68,26,0.12);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;height:56px;}
+  .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--rust);text-decoration:none;letter-spacing:-0.02em;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-back:hover{color:var(--rust);}
+  .page-hero{background:var(--earth);padding:6rem 1.25rem 2.5rem;position:relative;overflow:hidden;}
+  .page-hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px),repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px);pointer-events:none;}
+  .page-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+  .page-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+  .page-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,6vw,3.5rem);color:var(--warm-white);line-height:1.05;margin-bottom:1rem;}
+  .page-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:rgba(245,230,200,0.35);letter-spacing:0.1em;}
+  .content-wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem 5rem;}
+  .content-wrap h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--earth);margin-top:3rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(26,14,0,0.08);}
+  .content-wrap h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--rust);margin-top:2rem;margin-bottom:0.6rem;}
+  .content-wrap p{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:1rem;}
+  .content-wrap ul,.content-wrap ol{padding-left:1.5rem;margin-bottom:1rem;}
+  .content-wrap li{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.4rem;}
+  .content-wrap strong{font-weight:500;color:var(--earth);}
+  .content-wrap a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(196,68,26,0.3);transition:border-color 0.2s;}
+  .content-wrap a:hover{border-color:var(--rust);}
+  .content-wrap hr{border:none;border-top:1px solid rgba(26,14,0,0.08);margin:2.5rem 0;}
+  .content-wrap blockquote{border-left:3px solid var(--gold);padding:0.75rem 1.25rem;margin:1.5rem 0;background:rgba(232,160,32,0.05);border-radius:0 2px 2px 0;}
+  .content-wrap blockquote p{color:var(--earth);font-style:italic;margin:0;}
+  .content-wrap table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;}
+  .content-wrap th{background:var(--earth);color:var(--gold);font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1rem;text-align:left;}
+  .content-wrap td{padding:0.75rem 1rem;border-bottom:1px solid rgba(26,14,0,0.06);color:var(--text-muted);font-weight:300;vertical-align:top;}
+  .content-wrap tr:last-child td{border-bottom:none;}
+  .content-wrap tr:nth-child(even) td{background:rgba(245,230,200,0.3);}
+  .ubuntu-note{background:var(--earth);padding:2rem;margin:2.5rem 0;border-radius:2px;border-left:4px solid var(--gold);}
+  .ubuntu-note p{color:rgba(245,230,200,0.8);margin:0;font-style:italic;}
+  .legal-footer{background:var(--earth);padding:2.5rem 1.25rem;text-align:center;}
+  .legal-footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--warm-white);margin-bottom:0.5rem;}
+  .legal-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:1.25rem 0;}
+  .legal-footer-links a{font-family:'Space Mono',monospace;font-size:0.62rem;color:rgba(245,230,200,0.3);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .legal-footer-links a:hover{color:var(--gold);}
+  .legal-footer-copy{font-family:'Space Mono',monospace;font-size:0.6rem;color:rgba(245,230,200,0.15);letter-spacing:0.08em;margin-top:1rem;}
+  @media(min-width:768px){.nav-inner{padding:0 3rem;}.page-hero{padding:7rem 3rem 3rem;}.content-wrap{padding:4rem 3rem 6rem;}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="../index.html" class="nav-logo">Luvart</a><a href="../index.html" class="nav-back">← Back to site</a></div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Community Guidelines</h1>
+    <p class="page-meta">Last Updated: 9 March 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>Welcome to Luvart — a global village rooted in <strong>Ubuntu</strong>, the ancient African philosophy that <em>"I am because we are."</em></p>
+  <p>Luvart is not just a platform. It is a digital home for cultural pride, heritage preservation, and authentic human connection across generations. These guidelines exist to protect that home. Every member of this community — regardless of where they are from or what language they speak — is asked to uphold them.</p>
+  <p>By using Luvart, you agree to these guidelines. Violations may result in content removal, account suspension, or permanent removal from the platform, depending on severity.</p>
+
+  <hr>
+
+  <h2>1. Ubuntu — Respect and Kindness</h2>
+  <p>On Luvart, you are not consuming content. You are engaging with people — their stories, their families, and their histories.</p>
+  <p><strong>Honour the human behind every post.</strong> Harassment, bullying, threats, and doxing are not just rule violations. They are an affront to our shared humanity and will not be tolerated.</p>
+  <p><strong>Engage with curiosity, not entitlement.</strong> We encourage members to explore and learn about cultures other than their own. However, mocking, belittling, or treating another community's traditions as entertainment has no place here. Debate perspectives respectfully. Never demean the person holding them.</p>
+  <p><strong>Zero tolerance for hate.</strong> Content that promotes violence or hatred against any person or group based on race, ethnicity, religion, disability, age, nationality, sexual orientation, gender, or gender identity is strictly prohibited. This applies regardless of the language the content is posted in.</p>
+
+  <hr>
+
+  <h2>2. Cultural Integrity and Authenticity</h2>
+  <p>Heritage is identity, not a hashtag. Luvart exists to honour that distinction.</p>
+  <p><strong>Appreciation over appropriation.</strong> Share your own culture with pride. When engaging with cultures other than your own, do so with a spirit of genuine learning. Do not claim, commodify, or mock traditions, sacred symbols, or indigenous knowledge that does not belong to you.</p>
+  <p><strong>Respect cultural property.</strong> Only post photos, stories, songs, artwork, or oral histories that you own or have the communal right to share. The exploitation of indigenous cultural heritage is taken seriously and will result in content removal and account action.</p>
+  <p><strong>Be authentic.</strong> Do not impersonate individuals, community elders, cultural leaders, or other members. Authenticity is the foundation of trust on Luvart.</p>
+  <p><strong>No spam, bots, or commercial noise.</strong> Automated accounts, spam, pyramid schemes, and unsolicited commercial content are not permitted.</p>
+
+  <hr>
+
+  <h2>3. Language, Tradition, and Safety</h2>
+  <p><strong>Indigenous languages are welcomed and celebrated.</strong> We actively encourage members to post in their mother tongue. The same rules against harm, hate speech, and harassment apply in every language equally. Language is not a loophole.</p>
+  <p><strong>Cultural expression and nudity.</strong> Luvart recognises that many traditional ceremonies, attires, and cultural practices involve forms of nudity that are non-sexual and carry deep cultural significance. We distinguish between cultural expression and sexually explicit content.</p>
+  <ul>
+    <li><strong>Cultural expression</strong> — traditional ceremonies, attire, and practices shared in a spirit of heritage and education — is welcome on Luvart.</li>
+    <li><strong>Sexually explicit content</strong> is strictly prohibited.</li>
+  </ul>
+  <p>Content in the grey area between these two categories is reviewed by our <strong>Cultural Review Process</strong>, which involves human reviewers with relevant cultural and linguistic context before any enforcement action is taken. Members may appeal any decision. See our <a href="safety-security-faq.html">Safety and Security FAQ</a> for details.</p>
+  <p><strong>Protecting all members.</strong> Content that endangers minors, encourages self-harm, promotes eating disorders, or facilitates illegal activity is strictly prohibited.</p>
+
+  <hr>
+
+  <h2>4. Platform Security and Digital Sovereignty</h2>
+  <p><strong>No scraping or automated extraction.</strong> Automated scraping, crawling, or harvesting of any content, data, or cultural material from Luvart is strictly forbidden. Our community's stories are not fuel for third-party AI training or commercial data collection.</p>
+  <p><strong>No interference with platform integrity.</strong> Any attempt to breach Luvart's security, probe for vulnerabilities, reverse-engineer the platform, or disrupt services for other members will result in immediate permanent removal and may result in legal action.</p>
+
+  <hr>
+
+  <h2>Enforcement — Restoring Harmony</h2>
+  <p>We approach moderation as a means of restoring balance to the community, not simply punishing individuals. Enforcement actions are proportionate to the nature and severity of the violation.</p>
+
+  <table>
+    <thead><tr><th>Action</th><th>When It Applies</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Content Removal</strong></td><td>Content that violates these guidelines is removed. The member is notified.</td></tr>
+      <tr><td><strong>Educational Notice</strong></td><td>For minor or first-time misunderstandings, we provide guidance on our standards before taking further action.</td></tr>
+      <tr><td><strong>Temporary Suspension</strong></td><td>Repeated violations or moderately severe breaches result in a time-limited suspension.</td></tr>
+      <tr><td><strong>Permanent Removal</strong></td><td>Severe violations — including hate speech, content that endangers others, predatory behaviour, or repeated serious breaches.</td></tr>
+    </tbody>
+  </table>
+  <p>All enforcement decisions may be appealed. Details on how to submit an appeal are available in our <a href="safety-security-faq.html">Safety and Security FAQ</a>.</p>
+
+  <hr>
+
+  <div class="ubuntu-note">
+    <p>Luvart exists because your culture deserves more than an ad-filled feed. It deserves a home.<br><br>
+    By following these guidelines, you are not just complying with rules. You are acting as a guardian of this space — for the elders whose knowledge lives here, for the children who will inherit it, and for every community that has ever been told their language and their traditions were not worth preserving.<br><br>
+    <strong style="color:var(--gold)">You are because we are.</strong></p>
+  </div>
+
+  <hr>
+
+  <p><strong>Questions or concerns?</strong> If you see content that violates these guidelines, use the <strong>Report</strong> feature in the app. For further assistance, contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a>.</p>
+
+</div>
+
+<footer class="legal-footer">
+  <div class="legal-footer-brand">THE LUVART PLATFORMS (PTY) LTD</div>
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="community-guidelines.html">Community Guidelines</a>
+    <a href="safety-security-faq.html">Safety & Security FAQ</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </div>
+  <div class="legal-footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety & Security FAQ — Luvart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--earth:#1a0e00;--rust:#c4441a;--gold:#e8a020;--sand:#f5e6c8;--warm-white:#fdf8f0;--deep:#0d0700;--text-muted:#6b4f2a;}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--earth);overflow-x:hidden;line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(253,248,240,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(196,68,26,0.12);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;height:56px;}
+  .nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--rust);text-decoration:none;letter-spacing:-0.02em;}
+  .nav-back{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-back:hover{color:var(--rust);}
+  .page-hero{background:var(--earth);padding:6rem 1.25rem 2.5rem;position:relative;overflow:hidden;}
+  .page-hero-pattern{position:absolute;inset:0;opacity:0.04;background-image:repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px),repeating-linear-gradient(-45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 40px);pointer-events:none;}
+  .page-hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+  .page-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+  .page-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,6vw,3.5rem);color:var(--warm-white);line-height:1.05;margin-bottom:1rem;}
+  .page-meta{font-family:'Space Mono',monospace;font-size:0.65rem;color:rgba(245,230,200,0.35);letter-spacing:0.1em;}
+  .content-wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem 5rem;}
+  .content-wrap h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--earth);margin-top:3rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(26,14,0,0.08);}
+  .content-wrap h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--rust);margin-top:2rem;margin-bottom:0.6rem;}
+  .content-wrap p{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:1rem;}
+  .content-wrap ul,.content-wrap ol{padding-left:1.5rem;margin-bottom:1rem;}
+  .content-wrap li{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.4rem;}
+  .content-wrap strong{font-weight:500;color:var(--earth);}
+  .content-wrap a{color:var(--rust);text-decoration:none;border-bottom:1px solid rgba(196,68,26,0.3);transition:border-color 0.2s;}
+  .content-wrap a:hover{border-color:var(--rust);}
+  .content-wrap hr{border:none;border-top:1px solid rgba(26,14,0,0.08);margin:2.5rem 0;}
+  .content-wrap table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.85rem;}
+  .content-wrap th{background:var(--earth);color:var(--gold);font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1rem;text-align:left;}
+  .content-wrap td{padding:0.75rem 1rem;border-bottom:1px solid rgba(26,14,0,0.06);color:var(--text-muted);font-weight:300;vertical-align:top;}
+  .content-wrap tr:last-child td{border-bottom:none;}
+  .content-wrap tr:nth-child(even) td{background:rgba(245,230,200,0.3);}
+  /* FAQ accordion */
+  .faq-item{border-bottom:1px solid rgba(26,14,0,0.08);margin-bottom:0;}
+  .faq-q{font-family:'Playfair Display',serif;font-weight:700;font-size:0.98rem;color:var(--earth);padding:1.25rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;list-style:none;user-select:none;}
+  .faq-q::-webkit-details-marker{display:none;}
+  .faq-q::after{content:'+';font-family:'Space Mono',monospace;font-size:1rem;color:var(--rust);flex-shrink:0;transition:transform 0.2s;}
+  details[open] .faq-q::after{transform:rotate(45deg);}
+  .faq-a{padding:0 0 1.25rem;}
+  .faq-a p{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.85;margin-bottom:0.75rem;}
+  .faq-a ul{padding-left:1.5rem;margin-bottom:0.75rem;}
+  .faq-a li{font-size:0.93rem;font-weight:300;color:var(--text-muted);line-height:1.8;margin-bottom:0.4rem;}
+  .faq-a strong{font-weight:500;color:var(--earth);}
+  .faq-a blockquote{border-left:3px solid var(--gold);padding:0.75rem 1.25rem;margin:1rem 0;background:rgba(232,160,32,0.05);}
+  .faq-a blockquote p{color:var(--earth);font-style:italic;}
+  .section-label{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1rem;display:block;}
+  .closing-note{background:var(--earth);padding:2rem;margin:2.5rem 0;border-radius:2px;border-left:4px solid var(--gold);}
+  .closing-note p{color:rgba(245,230,200,0.8);margin:0;font-style:italic;font-size:0.9rem;line-height:1.8;}
+  .legal-footer{background:var(--earth);padding:2.5rem 1.25rem;text-align:center;}
+  .legal-footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:var(--warm-white);margin-bottom:0.5rem;}
+  .legal-footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:1.25rem 0;}
+  .legal-footer-links a{font-family:'Space Mono',monospace;font-size:0.62rem;color:rgba(245,230,200,0.3);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .legal-footer-links a:hover{color:var(--gold);}
+  .legal-footer-copy{font-family:'Space Mono',monospace;font-size:0.6rem;color:rgba(245,230,200,0.15);letter-spacing:0.08em;margin-top:1rem;}
+  @media(min-width:768px){.nav-inner{padding:0 3rem;}.page-hero{padding:7rem 3rem 3rem;}.content-wrap{padding:4rem 3rem 6rem;}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="../index.html" class="nav-logo">Luvart</a><a href="../index.html" class="nav-back">← Back to site</a></div></nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Safety &amp; Security FAQ</h1>
+    <p class="page-meta">Last Updated: 9 March 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>At Luvart, your digital life is your own. We have built a privacy-first platform from the ground up — not adapted one from a template designed to monetise your attention. This FAQ explains how we protect you, your data, and your community's cultural heritage.</p>
+
+  <span class="section-label">Privacy &amp; Encryption</span>
+
+  <details class="faq-item">
+    <summary class="faq-q">1. Are my private messages actually private?</summary>
+    <div class="faq-a">
+      <p>Yes. Luvart uses <strong>End-to-End Encryption (E2EE)</strong> based on the <strong>Signal Protocol</strong> — widely considered the global gold standard for private communication.</p>
+      <ul>
+        <li><strong>What this means:</strong> Your messages are encrypted on your device before they leave it. They are only decrypted on your recipient's device. No one in between — including Luvart — can read them.</li>
+        <li><strong>What we see:</strong> Nothing. Our servers act as a delivery post office. We carry the sealed envelopes. We do not have the keys to open them.</li>
+        <li><strong>What we cannot do:</strong> We cannot read your messages, hand them to advertisers, or produce their contents in response to requests we are not legally compelled to fulfil.</li>
+      </ul>
+      <blockquote><p><strong>Note:</strong> End-to-End Encrypted messaging is a <strong>Premium feature</strong> currently in development. It will be available to Premium subscribers after launch. Standard in-app interactions use TLS 1.3 encryption in transit in the meantime.</p></blockquote>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">2. How is my profile and personal data protected?</summary>
+    <div class="faq-a">
+      <p>Most platforms store user data in plain text, meaning a breach exposes everything. Luvart encrypts sensitive profile fields using <strong>AES-GCM-SIV</strong> — a high-integrity encryption standard — before data ever reaches our storage.</p>
+      <ul>
+        <li><strong>Encryption at rest:</strong> Your personal data is encrypted before it is written to our servers.</li>
+        <li><strong>What AES-GCM-SIV means for you:</strong> The SIV (Synthetic Initialisation Vector) component eliminates a class of common cryptographic vulnerabilities, making your stored data resistant to sophisticated attacks even in the event of a breach.</li>
+        <li><strong>What a breach would yield:</strong> Encrypted strings. Without the keys — which are stored separately and never co-located with user data — your information is unreadable and useless to an attacker.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">3. Does Luvart track my location?</summary>
+    <div class="faq-a">
+      <p>Only when you explicitly choose to share it. We do not track your location in the background, build movement profiles, or sell location data to advertisers.</p>
+      <p>If you choose to share your location for a post or to use <strong>LuvMap</strong>, that data is used only for the purpose you shared it for, encrypted and handled with the same rigour as your personal data, and never sold or shared with third parties for advertising purposes.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">4. Is my data encrypted while it is being sent?</summary>
+    <div class="faq-a">
+      <p>Always. Every connection between your device and Luvart's servers uses <strong>TLS 1.3</strong> — the current industry standard for secure data transmission. This means your activity cannot be intercepted even on public Wi-Fi networks.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">5. Why did you build your own infrastructure instead of using Firebase or Google?</summary>
+    <div class="faq-a">
+      <p>To give you genuine <strong>data sovereignty</strong>. Third-party platforms like Firebase are convenient, but they come with a cost: your usage patterns, metadata, and cultural connections pass through infrastructure owned by companies whose business model depends on data. We chose not to accept that trade-off.</p>
+      <p>By building Luvart's backend ourselves, your data stays within the Luvart ecosystem, no third-party tech company has access to your cultural connections, and we are accountable to our community — not to an advertising marketplace.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">6. What happens if Luvart's servers are breached?</summary>
+    <div class="faq-a">
+      <p>Because of our encryption-at-rest architecture, an attacker who gains access to our storage would find only encrypted data. Without the encryption keys — stored separately using hardware-backed key management — your photos, posts, personal details, and cultural content remain unreadable.</p>
+      <p>In the event of a confirmed breach affecting user data, we will notify affected users in accordance with our obligations under applicable law, including South Africa's POPIA and relevant regulations in our other operating markets.</p>
+    </div>
+  </details>
+
+  <span class="section-label">Cultural Safety</span>
+
+  <details class="faq-item">
+    <summary class="faq-q">7. How does Luvart protect cultural content from exploitation?</summary>
+    <div class="faq-a">
+      <p>Your cultural stories, indigenous language recordings, and community contributions are not data to be harvested.</p>
+      <ul>
+        <li><strong>Anti-scraping infrastructure:</strong> We have technical measures in place to prevent automated bots from extracting community content for external AI training or commercial data collection.</li>
+        <li><strong>No third-party AI training:</strong> Luvart community content is not used to train external AI models without explicit community consent. This is a firm policy, not a preference.</li>
+        <li><strong>Circle privacy controls:</strong> You control who sees your content. Cultural Circles can be set to community-only visibility.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">8. How does Luvart handle content involving cultural nudity or traditional ceremonies?</summary>
+    <div class="faq-a">
+      <p>We recognise that many traditional ceremonies, attires, and cultural practices involve forms of nudity that are non-sexual and carry deep cultural significance. We do not treat all nudity the same way.</p>
+      <p>When such content is flagged, it enters our <strong>Cultural Review Process</strong>:</p>
+      <ol>
+        <li>Automated screening assesses the content against our safety models.</li>
+        <li>Human review is conducted by a reviewer with relevant cultural and linguistic context before any enforcement action is taken. We aim to complete reviews within <strong>24 hours</strong> for standard cases and <strong>4 hours</strong> for widely reported content or content involving a minor.</li>
+        <li>The member who posted the content is notified of the outcome and the reason for any action taken.</li>
+        <li>All decisions are appealable — see the Appeals section below.</li>
+      </ol>
+    </div>
+  </details>
+
+  <span class="section-label">Moderation &amp; Appeals</span>
+
+  <details class="faq-item">
+    <summary class="faq-q">9. How do I report content or a user?</summary>
+    <div class="faq-a">
+      <p>Use the <strong>Report</strong> button available on every post, comment, and profile in the app. Reports are reviewed by our moderation team. You will receive a notification when action has been taken.</p>
+      <p>For urgent safety concerns — including content involving a minor or imminent harm — contact us directly at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>URGENT SAFETY</strong>.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">10. How do I appeal a moderation decision?</summary>
+    <div class="faq-a">
+      <p>If your content was removed or your account was suspended and you believe the decision was incorrect, you have the right to appeal.</p>
+      <p><strong>To submit an appeal:</strong></p>
+      <ol>
+        <li>Email <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>APPEAL — [your username]</strong></li>
+        <li>Include a brief explanation of why you believe the decision was incorrect</li>
+        <li>Include any relevant context, including cultural context if applicable</li>
+      </ol>
+      <p><strong>What happens next:</strong> We will acknowledge your appeal within 48 hours. Appeals are reviewed by a human moderator who was not involved in the original decision. You will receive a final decision within <strong>7 days</strong>.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">11. What are my rights regarding my personal data?</summary>
+    <div class="faq-a">
+      <p>You have the right to access, correct, request deletion of, and receive a portable copy of your personal data, as well as object to certain types of processing. To exercise any of these rights, contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with the subject line <strong>DATA REQUEST — [your username]</strong>. We will respond within 30 days.</p>
+    </div>
+  </details>
+
+  <span class="section-label">Data Retention</span>
+
+  <details class="faq-item">
+    <summary class="faq-q">12. How long does Luvart keep my data?</summary>
+    <div class="faq-a">
+      <table>
+        <thead><tr><th>Data Type</th><th>Retention Period</th></tr></thead>
+        <tbody>
+          <tr><td>Account and profile data</td><td>Duration of your account, plus 30 days after deletion</td></tr>
+          <tr><td>Posts, comments, and cultural content</td><td>Duration of your account. Deleted content removed within 30 days</td></tr>
+          <tr><td>Private messages (E2EE — Premium)</td><td>Never stored on our servers in readable form</td></tr>
+          <tr><td>Moderation and audit records</td><td>Up to 3 years</td></tr>
+          <tr><td>Security and access logs</td><td>Up to 12 months</td></tr>
+          <tr><td>Indigenous language recordings</td><td>Governed by your community consent settings</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <span class="section-label">Security Research</span>
+
+  <details class="faq-item">
+    <summary class="faq-q">13. I found a security vulnerability. What do I do?</summary>
+    <div class="faq-a">
+      <p>We take security seriously and welcome responsible disclosure from the security research community. Please report it to us privately before disclosing it publicly.</p>
+      <p>Email <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with subject line <strong>SECURITY DISCLOSURE</strong>. Include a description of the vulnerability, steps to reproduce it, and the potential impact as you understand it.</p>
+      <p>We will acknowledge your report within <strong>72 hours</strong>. We will not take legal action against researchers who follow this process in good faith.</p>
+    </div>
+  </details>
+
+  <hr>
+
+  <div class="closing-note">
+    <p>Security is a practice, not a product. At Luvart, we are committed to protecting your data, your privacy, and your community's cultural heritage — not as a feature, but as a foundation.</p>
+  </div>
+
+  <p><strong>Questions not answered here?</strong><br>
+  Contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> or visit <a href="https://luvart.luchsia.com" target="_blank" rel="noopener">luvart.luchsia.com</a></p>
+
+</div>
+
+<footer class="legal-footer">
+  <div class="legal-footer-brand">THE LUVART PLATFORMS (PTY) LTD</div>
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="community-guidelines.html">Community Guidelines</a>
+    <a href="safety-security-faq.html">Safety &amp; Security FAQ</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </div>
+  <div class="legal-footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Luvart</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #1a0e00;
+    --rust: #c4441a;
+    --gold: #e8a020;
+    --sand: #f5e6c8;
+    --warm-white: #fdf8f0;
+    --deep: #0d0700;
+    --text-muted: #6b4f2a;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--earth); overflow-x: hidden; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(253,248,240,0.95); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196,68,26,0.12);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 1.25rem; height: 56px; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem; color: var(--rust); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-back { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-back:hover { color: var(--rust); }
+
+  /* HERO STRIP */
+  .page-hero {
+    background: var(--earth); padding: 6rem 1.25rem 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .page-hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40px),
+      repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40px);
+    pointer-events: none;
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+  .page-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .page-title { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 6vw, 3.5rem); color: var(--warm-white); line-height: 1.05; margin-bottom: 1rem; }
+  .page-meta { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: rgba(245,230,200,0.35); letter-spacing: 0.1em; }
+
+  /* CONTENT */
+  .content-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+  .content-wrap h2 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--earth);
+    margin-top: 3rem; margin-bottom: 1rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid rgba(26,14,0,0.08);
+  }
+  .content-wrap h3 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 1rem; color: var(--rust);
+    margin-top: 2rem; margin-bottom: 0.6rem;
+  }
+  .content-wrap p { font-size: 0.93rem; font-weight: 300; color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; }
+  .content-wrap ul, .content-wrap ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+  .content-wrap li { font-size: 0.93rem; font-weight: 300; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.4rem; }
+  .content-wrap strong { font-weight: 500; color: var(--earth); }
+  .content-wrap a { color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(196,68,26,0.3); transition: border-color 0.2s; }
+  .content-wrap a:hover { border-color: var(--rust); }
+  .content-wrap hr { border: none; border-top: 1px solid rgba(26,14,0,0.08); margin: 2.5rem 0; }
+  .content-wrap blockquote { border-left: 3px solid var(--gold); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: rgba(232,160,32,0.05); border-radius: 0 2px 2px 0; }
+  .content-wrap blockquote p { color: var(--earth); font-style: italic; margin: 0; }
+
+  /* TABLE */
+  .content-wrap table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; }
+  .content-wrap th { background: var(--earth); color: var(--gold); font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.75rem 1rem; text-align: left; }
+  .content-wrap td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(26,14,0,0.06); color: var(--text-muted); font-weight: 300; vertical-align: top; }
+  .content-wrap tr:last-child td { border-bottom: none; }
+  .content-wrap tr:nth-child(even) td { background: rgba(245,230,200,0.3); }
+
+  /* FOOTER */
+  .legal-footer { background: var(--earth); padding: 2.5rem 1.25rem; text-align: center; }
+  .legal-footer-brand { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.1rem; color: var(--warm-white); margin-bottom: 0.5rem; }
+  .legal-footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; margin: 1.25rem 0; }
+  .legal-footer-links a { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: rgba(245,230,200,0.3); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .legal-footer-links a:hover { color: var(--gold); }
+  .legal-footer-copy { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(245,230,200,0.15); letter-spacing: 0.08em; margin-top: 1rem; }
+
+  @media (min-width: 768px) {
+    .nav-inner { padding: 0 3rem; }
+    .page-hero { padding: 7rem 3rem 3rem; }
+    .content-wrap { padding: 4rem 3rem 6rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Luvart</a>
+    <a href="../index.html" class="nav-back">← Back to site</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">Effective Date: 18 August 2024 &nbsp;·&nbsp; Last Updated: 9 March 2026</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>This Privacy Policy explains how <strong>The Luvart Platforms (Pty) Ltd</strong> ("we," "us," or "our") collects, uses, protects, and handles your personal information when you use Luvart.</p>
+  <p>Luvart is operated by The Luvart Platforms (Pty) Ltd, a company registered in South Africa. By using Luvart, you agree to the practices described in this policy.</p>
+
+  <hr>
+
+  <h2>1. Our Privacy Commitment</h2>
+  <p>Luvart is an ad-free platform built on the philosophy of <strong>Ubuntu</strong> — the belief that your identity and your heritage are not products to be sold.</p>
+  <p>We make the following commitments to every user:</p>
+  <ul>
+    <li><strong>We do not sell your data.</strong> We do not sell, rent, trade, or broker your personal information to any third party.</li>
+    <li><strong>We do not use third-party advertising or tracking.</strong> Luvart does not integrate advertising networks, marketing pixels, or third-party analytics services such as Google AdMob, Firebase, or Meta Pixel.</li>
+    <li><strong>We do not use cookies.</strong> Luvart uses Redis-backed sessions and JSON Web Tokens (JWTs) for authentication. No tracking cookies are placed on your device.</li>
+    <li><strong>We control our own infrastructure.</strong> Your data is stored on servers operated directly by The Luvart Platforms (Pty) Ltd. We do not rely on third-party backend-as-a-service providers.</li>
+  </ul>
+
+  <hr>
+
+  <h2>2. The Law That Protects You</h2>
+  <p>We are committed to compliance with applicable data protection law across all markets where Luvart operates.</p>
+  <p><strong>Africa (Primary)</strong> — Our primary legal framework is the <strong>Protection of Personal Information Act, 4 of 2013 (POPIA)</strong> of South Africa. As we expand across the continent, we comply with applicable national data protection legislation in each African market.</p>
+  <p><strong>India</strong> — We comply with India's <strong>Digital Personal Data Protection Act, 2023 (DPDP Act)</strong>.</p>
+  <p><strong>Mexico</strong> — We comply with Mexico's <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>.</p>
+  <p><strong>Indonesia</strong> — We comply with Indonesia's <strong>Government Regulation No. 71 of 2019</strong> and applicable personal data protection obligations.</p>
+  <p>If you are located in a country not listed above, we apply the standards of POPIA as a baseline minimum for all users globally.</p>
+
+  <hr>
+
+  <h2>3. Information We Collect</h2>
+  <p>We collect only the minimum information necessary to provide a secure, functional, and culturally meaningful platform.</p>
+
+  <h3>3.1 Account Data</h3>
+  <p>When you create an account, we collect: name and username, email address, phone number (if provided), date of birth (to verify minimum age eligibility), and profile photo (if uploaded).</p>
+
+  <h3>3.2 Content You Share</h3>
+  <p>We store content you voluntarily create and share, including photos, videos, written posts, audio recordings, comments, reactions, and Cultural Circle contributions.</p>
+
+  <h3>3.3 Technical and Security Data</h3>
+  <p>To maintain platform security and stability, we collect IP addresses (pseudonymised in logs), device type, operating system version, app version, and session activity data managed via server-side Redis sessions — not browser cookies. This data is used strictly for security monitoring, fraud detection, and platform stability. It is not used for advertising or profiling.</p>
+
+  <h3>3.4 Location Data</h3>
+  <p>We collect location data <strong>only</strong> when you explicitly grant permission to enable specific features such as <strong>LuvMap</strong>. We collect approximate (coarse) location, not precise GPS coordinates, unless you choose to share a specific location with a post. Location data is not collected in the background and is not used for advertising.</p>
+
+  <h3>3.5 What We Do Not Collect</h3>
+  <ul>
+    <li>We do not place cookies on your device</li>
+    <li>We do not collect biometric data</li>
+    <li>We do not collect data from your contacts, camera, or microphone without your explicit in-app permission for a specific action</li>
+    <li>We do not collect data about your activity on other platforms or websites</li>
+  </ul>
+
+  <hr>
+
+  <h2>4. Cultural Data Sovereignty</h2>
+  <p>Luvart recognises that cultural content — stories, indigenous language recordings, traditional knowledge, and oral heritage — carries community ownership, historical significance, and identity.</p>
+  <p><strong>Your cultural content belongs to you and your community.</strong></p>
+  <ul>
+    <li>You retain ownership of the cultural knowledge you share on Luvart.</li>
+    <li>Luvart acts as a secure vessel for this information, not an owner of it.</li>
+    <li>Your cultural content and voice recordings are <strong>not</strong> used to train external artificial intelligence systems or large language models without your explicit informed consent.</li>
+    <li>Indigenous language audio recordings are governed by your individual and community consent settings. You may withdraw consent at any time.</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. How We Use Your Data</h2>
+  <table>
+    <thead><tr><th>Purpose</th><th>Legal Basis (POPIA)</th></tr></thead>
+    <tbody>
+      <tr><td>Creating and managing your account</td><td>Performance of contract</td></tr>
+      <tr><td>Delivering your content to your Cultural Circles and followers</td><td>Performance of contract</td></tr>
+      <tr><td>Recommending culturally relevant content to you</td><td>Legitimate interest</td></tr>
+      <tr><td>Detecting and preventing fraud, abuse, and security threats</td><td>Legitimate interest / Legal obligation</td></tr>
+      <tr><td>Moderating content in accordance with our Community Guidelines</td><td>Legitimate interest / Legal obligation</td></tr>
+      <tr><td>Analysing platform performance using anonymised, first-party data</td><td>Legitimate interest</td></tr>
+      <tr><td>Complying with legal obligations and responding to lawful requests</td><td>Legal obligation</td></tr>
+    </tbody>
+  </table>
+  <p>We do not use your data for advertising, behavioural profiling, or any purpose not listed above.</p>
+
+  <hr>
+
+  <h2>6. Technical Safeguards</h2>
+  <p><strong>Encryption in transit</strong> — All communication between the Luvart app and our servers is protected using <strong>TLS 1.3</strong>.</p>
+  <p><strong>Encryption at rest</strong> — Sensitive personal data fields are encrypted at the column level using <strong>AES-GCM-SIV</strong> before being written to our servers.</p>
+  <p><strong>Key management</strong> — Encryption keys are managed through a dedicated secure key management system and are never stored alongside the data they protect.</p>
+  <p><strong>Authentication</strong> — Luvart uses <strong>JSON Web Tokens (JWTs)</strong> for authentication and server-side <strong>Redis sessions</strong> for session management. We do not use browser cookies.</p>
+  <p><strong>No cookies</strong> — Luvart does not place any cookies — tracking, functional, or otherwise — on your device.</p>
+
+  <hr>
+
+  <h2>7. Data Sharing and Third Parties</h2>
+  <p>We do not sell, rent, or trade your personal information. We may share limited data with third parties only in the following circumstances: legal obligations, imminent safety concerns, and infrastructure providers who process data on our behalf under contractual data processing agreements.</p>
+  <p>We do not share data with advertising networks, data brokers, or marketing platforms under any circumstances.</p>
+
+  <hr>
+
+  <h2>8. International Data Transfers</h2>
+  <p>The Luvart Platforms (Pty) Ltd is headquartered in South Africa. Our primary servers serving African users are located in South Africa, ensuring that African user data remains on the continent. Any cross-border transfer of personal data is conducted in accordance with the requirements of POPIA and applicable local law.</p>
+
+  <hr>
+
+  <h2>9. Data Retention</h2>
+  <table>
+    <thead><tr><th>Data Type</th><th>Retention Period</th></tr></thead>
+    <tbody>
+      <tr><td>Account and profile data</td><td>Duration of your account, plus 30 days after deletion</td></tr>
+      <tr><td>Posts, comments, and cultural content</td><td>Duration of your account. Deleted content removed within 30 days</td></tr>
+      <tr><td>Private messages (E2EE — Premium)</td><td>Not stored on our servers in readable form</td></tr>
+      <tr><td>Security and access logs</td><td>Up to 12 months</td></tr>
+      <tr><td>Moderation and audit records</td><td>Up to 3 years</td></tr>
+      <tr><td>Indigenous language recordings</td><td>Governed by your community consent settings</td></tr>
+      <tr><td>Anonymised, aggregated analytics data</td><td>Indefinitely, as it contains no personal information</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h2>10. Your Rights</h2>
+  <p>Regardless of your location, we honour the following rights: right to access, right to rectification, right to erasure, right to data portability, right to object, and rights regarding automated decisions.</p>
+  <p>To exercise any of these rights, contact our Information Officer at: <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a> with subject line <strong>DATA REQUEST — [your username]</strong>. We will respond within 30 days.</p>
+
+  <hr>
+
+  <h2>11. Children's Privacy</h2>
+  <p>Luvart is intended for users aged 13 and older. We do not knowingly collect personal data from children below the applicable minimum age. If you believe a child below the minimum age has created an account, please contact us at <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a>.</p>
+
+  <hr>
+
+  <h2>12. Information Officer</h2>
+  <p>In accordance with POPIA, The Luvart Platforms (Pty) Ltd is in the process of registering its Information Officer with the Information Regulator of South Africa. All data protection enquiries should be directed to:</p>
+  <p><strong>The Luvart Platforms (Pty) Ltd</strong><br>Email: <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a></p>
+
+  <hr>
+
+  <h2>13. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you through the app and update the "Last Updated" date at the top of this document.</p>
+
+  <hr>
+
+  <h2>14. Contact Us</h2>
+  <p><strong>The Luvart Platforms (Pty) Ltd</strong><br>
+  Attention: Information Officer<br>
+  Email: <a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a><br>
+  Website: <a href="https://luvart.luchsia.com" target="_blank" rel="noopener">luvart.luchsia.com</a></p>
+
+</div>
+
+<footer class="legal-footer">
+  <div class="legal-footer-brand">THE LUVART PLATFORMS (PTY) LTD</div>
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="community-guidelines.html">Community Guidelines</a>
+    <a href="safety-security-faq.html">Safety & Security FAQ</a>
+    <a href="delete-account.html">Account Deletion</a>
+  </div>
+  <div class="legal-footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
