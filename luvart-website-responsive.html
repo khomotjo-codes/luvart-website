@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luvart — Built for the Culture. Built by the Culture.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #1a0e00;
+    --rust: #c4441a;
+    --gold: #e8a020;
+    --sand: #f5e6c8;
+    --warm-white: #fdf8f0;
+    --deep: #0d0700;
+    --text-muted: #6b4f2a;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--earth);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* ─── TYPOGRAPHY SCALE ─── */
+  .t-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .t-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    line-height: 1.05;
+  }
+
+  .t-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .t-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .t-small {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── SPACING ─── */
+  .section { padding: 4rem 1.25rem; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: rgba(253, 248, 240, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(196, 68, 26, 0.12);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--rust);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .nav-cta-mobile {
+    background: var(--rust);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--earth);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-drawer {
+    position: fixed;
+    top: 56px; left: 0; right: 0; bottom: 0;
+    background: var(--earth);
+    z-index: 190;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.25rem;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-drawer.open { transform: translateX(0); }
+
+  .drawer-link {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(245, 230, 200, 0.08);
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .drawer-link:hover { color: var(--gold); }
+
+  .drawer-cta {
+    margin-top: 2rem;
+    background: var(--rust);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+
+  .drawer-footer {
+    margin-top: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: rgba(245, 230, 200, 0.2);
+    letter-spacing: 0.1em;
+  }
+
+  /* Desktop nav links — hidden on mobile */
+  .nav-links-desktop {
+    display: none;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--earth);
+    padding: 5.5rem 1.25rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image:
+      repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40px),
+      repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 40px);
+    pointer-events: none;
+  }
+
+  .hero-blob {
+    position: absolute;
+    top: -10%;
+    right: -20%;
+    width: 70vw;
+    height: 70vw;
+    max-width: 400px;
+    max-height: 400px;
+    background: radial-gradient(circle, rgba(196,68,26,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 10vw, 5.5rem);
+    color: var(--warm-white);
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.35s;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gold); }
+
+  .hero-sub {
+    color: rgba(245, 230, 200, 0.7);
+    margin-bottom: 0.75rem;
+    max-width: 520px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
+
+  .hero-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--rust);
+    letter-spacing: 0.08em;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.6s;
+  }
+
+  .hero-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 420px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.75s;
+  }
+
+  .hero-form input {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    background: rgba(245, 230, 200, 0.08);
+    border: 1px solid rgba(245, 230, 200, 0.2);
+    color: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    border-radius: 2px;
+    -webkit-appearance: none;
+  }
+
+  .hero-form input::placeholder { color: rgba(245, 230, 200, 0.35); }
+  .hero-form input:focus { border-color: rgba(245, 230, 200, 0.4); }
+
+  .hero-form button {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--gold);
+    color: var(--earth);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    transition: background 0.2s;
+  }
+
+  .hero-form button:active { background: var(--sand); }
+
+  .hero-privacy {
+    margin-top: 0.6rem;
+    font-size: 0.72rem;
+    color: rgba(245, 230, 200, 0.28);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.9s;
+  }
+
+  /* ─── UBUNTU STRIP ─── */
+  .ubuntu-strip {
+    background: var(--rust);
+    padding: 1rem 1.25rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .ubuntu-strip-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ubuntu-strip span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(253, 248, 240, 0.9);
+    flex-shrink: 0;
+  }
+
+  .ubuntu-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  /* ─── MISSION ─── */
+  .mission { background: var(--warm-white); }
+
+  .mission-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .mission-card {
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .mission-card-dark { background: var(--earth); }
+  .mission-card-rust { background: var(--rust); }
+
+  .mission-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .mission-card-rust .mission-card-title { color: var(--warm-white); }
+
+  .mission-card-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245, 230, 200, 0.75);
+    line-height: 1.7;
+  }
+
+  /* ─── FEATURES ─── */
+  .features { background: var(--sand); }
+
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: var(--warm-white);
+    padding: 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--rust);
+    transition: width 0.4s;
+  }
+
+  .feature-card:active { background: var(--earth); }
+  .feature-card:active .feature-num { color: rgba(245,230,200,0.08); }
+  .feature-card:active .feature-title { color: var(--gold); }
+  .feature-card:active .feature-body { color: rgba(245,230,200,0.65); }
+
+  .feature-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(26,14,0,0.06);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s;
+  }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .feature-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+    transition: color 0.3s;
+  }
+
+  /* ─── COMING SOON ─── */
+  .coming { background: var(--earth); position: relative; overflow: hidden; }
+
+  .coming-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.04;
+    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  .coming .t-eyebrow { color: var(--gold); }
+  .coming .t-heading { color: var(--warm-white); }
+  .coming .t-body { color: rgba(245,230,200,0.55); }
+
+  .coming-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .coming-card {
+    border: 1px solid rgba(245,230,200,0.1);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .coming-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .coming-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .coming-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.5);
+    line-height: 1.7;
+  }
+
+  /* ─── PRODUCTS ─── */
+  .products { background: var(--warm-white); }
+
+  .products-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 2rem;
+  }
+
+  .product-card {
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+
+  .product-luvart { background: var(--rust); }
+  .product-setso { background: var(--earth); }
+  .product-luchsia { background: var(--sand); }
+
+  .product-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .product-luvart .product-eyebrow,
+  .product-setso .product-eyebrow { color: rgba(245,230,200,0.45); }
+  .product-luchsia .product-eyebrow { color: var(--rust); }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+
+  .product-luvart .product-name,
+  .product-setso .product-name { color: var(--warm-white); }
+  .product-luchsia .product-name { color: var(--earth); }
+
+  .product-tagline {
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-luvart .product-tagline { color: var(--gold); }
+  .product-setso .product-tagline { color: rgba(232,160,32,0.75); }
+  .product-luchsia .product-tagline { color: var(--rust); }
+
+  .product-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .product-luvart .product-desc,
+  .product-setso .product-desc { color: rgba(245,230,200,0.7); }
+  .product-luchsia .product-desc { color: var(--text-muted); }
+
+  .product-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid;
+  }
+
+  .product-luvart .product-link { color: var(--gold); border-color: var(--gold); }
+  .product-setso .product-link { color: rgba(245,230,200,0.5); border-color: rgba(245,230,200,0.25); }
+  .product-luchsia .product-link { color: var(--rust); border-color: var(--rust); }
+
+  .luchsia-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .luchsia-stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 0.9rem 1.1rem;
+    border-left: 3px solid var(--rust);
+  }
+
+  .luchsia-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--rust);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .luchsia-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  /* ─── SETSO ─── */
+  .setso-section { background: var(--earth); }
+  .setso-section .t-eyebrow { color: var(--gold); }
+  .setso-section .t-heading { color: var(--warm-white); margin: 0.75rem 0; }
+
+  .setso-problem {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.6);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .setso-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 2rem;
+  }
+
+  .setso-layer {
+    background: rgba(245,230,200,0.04);
+    border-left: 2px solid var(--rust);
+    padding: 1.1rem 1.25rem;
+  }
+
+  .setso-layer-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .setso-layer-body {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.5);
+    line-height: 1.6;
+  }
+
+  .lang-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: rgba(245,230,200,0.3);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .lang-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .lang-pill {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(232,160,32,0.35);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    border-radius: 1px;
+  }
+
+  .lang-pill.t2 {
+    border-color: rgba(245,230,200,0.12);
+    color: rgba(245,230,200,0.3);
+  }
+
+  .setso-note {
+    margin-top: 1.25rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: rgba(245,230,200,0.2);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--sand); }
+
+  .principles {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .principle {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(26,14,0,0.08);
+  }
+
+  .principle:first-child { border-top: 1px solid rgba(26,14,0,0.08); }
+
+  .principle-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--rust);
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .principle-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 0.3rem;
+  }
+
+  .principle-body {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ─── FOUNDER ─── */
+  .founder { background: var(--earth); }
+  .founder .t-eyebrow { color: var(--gold); }
+  .founder .t-heading { color: var(--warm-white); margin: 0.75rem 0 1rem; }
+  .founder .t-body { color: rgba(245,230,200,0.6); margin-bottom: 2rem; }
+
+  .founder-card {
+    border: 1px solid rgba(245,230,200,0.1);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .founder-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .founder-bio {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.6);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .founder-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(245,230,200,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .founder-link:active { color: var(--gold); }
+
+  /* ─── WAITLIST ─── */
+  .waitlist {
+    background: var(--rust);
+    padding: 5rem 1.25rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .waitlist-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(0deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50px),
+      repeating-linear-gradient(90deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50px);
+    pointer-events: none;
+  }
+
+  .waitlist-content { position: relative; z-index: 2; }
+
+  .waitlist-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .waitlist-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.7);
+    margin-bottom: 2.5rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+  }
+
+  .waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .waitlist-form input {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    background: rgba(253,248,240,0.12);
+    border: 1px solid rgba(253,248,240,0.22);
+    color: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    text-align: center;
+  }
+
+  .waitlist-form input::placeholder { color: rgba(245,230,200,0.38); }
+  .waitlist-form input:focus { border-color: rgba(245,230,200,0.4); }
+
+  .waitlist-form button {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--earth);
+    color: var(--gold);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    transition: background 0.2s;
+  }
+
+  .waitlist-form button:active { background: var(--deep); }
+
+  .waitlist-privacy {
+    margin-top: 0.8rem;
+    font-size: 0.72rem;
+    color: rgba(245,230,200,0.28);
+  }
+
+  /* ─── LEGAL ─── */
+  .legal {
+    background: var(--sand);
+    padding: 3rem 1.25rem;
+    text-align: center;
+  }
+
+  .legal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .legal-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(107,79,42,0.25);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .legal-links a:active { color: var(--rust); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--deep);
+    padding: 3rem 1.25rem 1.5rem;
+  }
+
+  .footer-brand {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(245,230,200,0.06);
+  }
+
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--warm-white);
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-brand-desc {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(245,230,200,0.3);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--rust);
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-col-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,230,200,0.25);
+    margin-bottom: 0.9rem;
+  }
+
+  .footer-col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .footer-col-links a {
+    font-size: 0.8rem;
+    color: rgba(245,230,200,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col-links a:active { color: var(--gold); }
+
+  .footer-bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(245,230,200,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: rgba(245,230,200,0.18);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── TABLET (640px+) ─── */
+  @media (min-width: 640px) {
+    .section { padding: 5rem 2.5rem; }
+    .hero { padding: 6rem 2.5rem 4rem; }
+
+    .hero-form {
+      flex-direction: row;
+      gap: 0;
+    }
+    .hero-form input {
+      border-radius: 2px 0 0 2px;
+      border-right: none;
+      flex: 1;
+    }
+    .hero-form button {
+      border-radius: 0 2px 2px 0;
+      width: auto;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .waitlist-form {
+      flex-direction: row;
+      gap: 0;
+    }
+    .waitlist-form input {
+      border-radius: 2px 0 0 2px;
+      border-right: none;
+      flex: 1;
+      text-align: left;
+    }
+    .waitlist-form button {
+      border-radius: 0 2px 2px 0;
+      width: auto;
+      padding: 0.9rem 1.5rem;
+    }
+
+    .mission-cards {
+      flex-direction: row;
+    }
+    .mission-card { flex: 1; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .coming-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .legal-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+
+    .footer-cols { grid-template-columns: repeat(3, 1fr); }
+
+    .footer-bottom { flex-direction: row; justify-content: space-between; }
+  }
+
+  /* ─── DESKTOP (1024px+) ─── */
+  @media (min-width: 1024px) {
+    .section { padding: 6rem 4rem; }
+    .hero { padding: 7rem 4rem 5rem; }
+
+    /* Desktop nav */
+    .hamburger { display: none; }
+    .nav-cta-mobile { display: none; }
+
+    .nav-inner { padding: 0 4rem; height: 64px; }
+
+    .nav-links-desktop {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links-desktop a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links-desktop a:hover { color: var(--rust); }
+
+    .nav-links-desktop .nav-cta-desktop {
+      background: var(--rust);
+      color: white;
+      padding: 0.55rem 1.3rem;
+      border-radius: 2px;
+    }
+
+    .nav-links-desktop .nav-cta-desktop:hover { background: var(--earth); color: white; }
+
+    .hero-content { max-width: 820px; }
+    .hero-title { font-size: clamp(3.5rem, 6vw, 6rem); }
+
+    /* Two-column layouts */
+    .mission-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .mission-cards { flex-direction: column; }
+
+    .coming-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .products-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .product-luchsia { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .luchsia-stats { margin-top: 0; }
+
+    .setso-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .feature-card:hover { background: var(--earth); }
+    .feature-card:hover .feature-num { color: rgba(245,230,200,0.08); }
+    .feature-card:hover .feature-title { color: var(--gold); }
+    .feature-card:hover .feature-body { color: rgba(245,230,200,0.65); }
+    .feature-card:hover::after { width: 100%; }
+
+    .founder-link:hover { color: var(--gold); }
+    .legal-links a:hover { color: var(--rust); }
+    .footer-col-links a:hover { color: var(--gold); }
+
+    .footer-cols { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ─── LARGE DESKTOP (1280px+) ─── */
+  @media (min-width: 1280px) {
+    .section { padding: 7rem 5rem; }
+    .hero { padding: 8rem 5rem 6rem; }
+    .nav-inner { padding: 0 5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Luvart</a>
+    <!-- Desktop links -->
+    <ul class="nav-links-desktop">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#setso">Setso</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#waitlist" class="nav-cta-desktop">Join Waitlist</a></li>
+    </ul>
+    <!-- Mobile right -->
+    <div class="nav-right">
+      <a href="#waitlist" class="nav-cta-mobile">Waitlist</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="drawer">
+  <a href="#about" class="drawer-link" onclick="closeDrawer()">About</a>
+  <a href="#products" class="drawer-link" onclick="closeDrawer()">Products</a>
+  <a href="#setso" class="drawer-link" onclick="closeDrawer()">Setso</a>
+  <a href="#founder" class="drawer-link" onclick="closeDrawer()">Founder</a>
+  <a href="#waitlist" class="drawer-cta" onclick="closeDrawer()">Join the Waitlist</a>
+  <div class="drawer-footer">THE LUVART PLATFORMS (PTY) LTD · Built in South Africa</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-pattern"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow t-eyebrow">THE LUVART PLATFORMS (PTY) LTD</p>
+    <h1 class="hero-title t-display">I am because<br><em>we are.</em></h1>
+    <p class="hero-sub t-body">A cultural social media platform where heritage comes first, traditions are preserved, and authentic human connection is possible again.</p>
+    <p class="hero-tagline">BUILT FOR THE CULTURE. BUILT BY THE CULTURE.</p>
+    <form class="hero-form" id="hero-form" action="https://formspree.io/f/mjglolpy" method="POST">
+      <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit" id="hero-btn">Join the Waitlist</button>
+    </form>
+    <p class="hero-privacy" id="hero-msg">We will never sell your email. Ever.</p>
+  </div>
+</section>
+
+<!-- UBUNTU STRIP -->
+<div class="ubuntu-strip" aria-hidden="true">
+  <div class="ubuntu-strip-inner">
+    <span>"I am because we are"</span>
+    <span class="ubuntu-dot"></span>
+    <span>Ad-free · Privacy-first · Ubuntu</span>
+    <span class="ubuntu-dot"></span>
+    <span>Built in South Africa. Built for Africa.</span>
+    <span class="ubuntu-dot"></span>
+    <span>Your culture deserves more than a hashtag</span>
+    <span class="ubuntu-dot"></span>
+    <span>"I am because we are"</span>
+    <span class="ubuntu-dot"></span>
+    <span>Ad-free · Privacy-first · Ubuntu</span>
+    <span class="ubuntu-dot"></span>
+    <span>Built in South Africa. Built for Africa.</span>
+    <span class="ubuntu-dot"></span>
+    <span>Your culture deserves more than a hashtag</span>
+    <span class="ubuntu-dot"></span>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission section" id="about">
+  <div class="mission-layout">
+    <div class="reveal">
+      <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">Our Mission</p>
+      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.25rem;">Culture is not content.<br>It is identity.</h2>
+      <p class="t-body" style="color: var(--text-muted); max-width: 520px;">
+        Mainstream platforms were not built for your language, your traditions, or your community. Luvart was.<br><br>
+        We built a home for the stories that matter — the ones passed down through generations, the ones that exist only in the languages they were born in, the ones that define who we are and who we become through each other.
+      </p>
+    </div>
+    <div class="mission-cards reveal">
+      <div class="mission-card mission-card-dark">
+        <div class="mission-card-title">In a world that forgets</div>
+        <div class="mission-card-body">Every story shared, every indigenous language audio recorded, every tradition documented on Luvart is an act of preservation. Your culture deserves more than a hashtag.</div>
+      </div>
+      <div class="mission-card mission-card-rust">
+        <div class="mission-card-title" style="color: var(--warm-white);">Luvart connects</div>
+        <div class="mission-card-body">No ads. No data selling. No third-party tracking. Just culture, given a home worthy of it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features section">
+  <div class="reveal">
+    <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">What You Can Do</p>
+    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2rem;">A platform built for the culture</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-num">01</div>
+      <div class="feature-title">Cultural Stories</div>
+      <div class="feature-body">Share photos, videos, and stories from your real cultural life — traditional clothing, music, art, ceremonies, food, and the everyday moments that define your community. Not filtered. Not sanitised. Real.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-num">02</div>
+      <div class="feature-title">Cultural Circles</div>
+      <div class="feature-body">Communities built around heritage, language, and shared tradition. Find your people. Welcome others. Grow together in spaces that honour who you are.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-num">03</div>
+      <div class="feature-title">Culture Exchange Feed</div>
+      <div class="feature-body">Discover living traditions from every corner of the world. Filter by language, theme, or location. Curiosity without borders. Connection without translation.</div>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-num">04</div>
+      <div class="feature-title">Indigenous Language Preservation</div>
+      <div class="feature-body">Your mother tongue belongs on the internet. Record songs, greetings, proverbs, and stories. Build a living archive of languages that mainstream platforms have never made space for.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="coming section">
+  <div class="coming-pattern"></div>
+  <div class="reveal" style="position: relative; z-index: 1;">
+    <p class="t-eyebrow" style="color: var(--gold); margin-bottom: 0.75rem;">Coming Soon</p>
+    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--warm-white); margin-bottom: 0.75rem;">What's next</h2>
+    <p class="t-body" style="color: rgba(245,230,200,0.5); max-width: 480px;">The platform is growing. These features are on their way.</p>
+  </div>
+  <div class="coming-grid">
+    <div class="coming-card reveal">
+      <span class="coming-badge">In Development</span>
+      <div class="coming-title">LuvMap</div>
+      <div class="coming-body">An interactive cultural map built on cultural borders — not political ones. A Zulu cultural region does not stop at a country line. LuvMap reflects how culture actually lives in the world.</div>
+    </div>
+    <div class="coming-card reveal">
+      <span class="coming-badge">In Development</span>
+      <div class="coming-title">Cultural Marketplace</div>
+      <div class="coming-body">Buy and sell authentic handmade crafts and artwork directly from cultural creators. No middlemen. No mass production. Just culture, sold by the people who made it.</div>
+    </div>
+    <div class="coming-card reveal">
+      <span class="coming-badge">Premium — Coming Soon</span>
+      <div class="coming-title">E2E Encrypted Messaging</div>
+      <div class="coming-body">Private, encrypted direct messaging built on the Signal Protocol — the gold standard of secure communication. Available to Premium subscribers after launch.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products section" id="products">
+  <div class="reveal">
+    <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">Our Products</p>
+    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2rem;">Three pillars. One mission.</h2>
+  </div>
+  <div class="products-stack">
+    <div class="product-card product-luvart reveal">
+      <span class="product-eyebrow">Cultural Social Platform</span>
+      <div class="product-name">Luvart</div>
+      <div class="product-tagline">Built for the Culture. Built by the Culture.</div>
+      <div class="product-desc">A privacy-first cultural social media platform where heritage, tradition, and authentic human connection come first. Ad-free. No data selling. No tracking. Built on Ubuntu.</div>
+      <a href="#waitlist" class="product-link">Join the Waitlist →</a>
+    </div>
+    <div class="product-card product-setso reveal">
+      <span class="product-eyebrow">Knowledge Search — Coming Soon</span>
+      <div class="product-name">Setso</div>
+      <div class="product-tagline">Tradition, in every tongue it was born in.</div>
+      <div class="product-desc">An African multilingual cultural knowledge search engine. Search in the language you think in. Setso does the translation work — not you. Powered by authentic cultural data from Luvart communities.</div>
+      <a href="#setso" class="product-link">Learn More →</a>
+    </div>
+    <div class="product-card product-luchsia reveal">
+      <div>
+        <span class="product-eyebrow">Infrastructure Subsidiary</span>
+        <div class="product-name">Luchsia</div>
+        <div class="product-tagline">The infrastructure layer beneath everything.</div>
+        <div class="product-desc">Luchsia is a wholly-owned IaaS subsidiary of THE LUVART PLATFORMS (PTY) LTD, providing the encrypted, privacy-first microservices infrastructure that powers both Luvart and Setso. No third-party backend providers. No compromises on data sovereignty.</div>
+        <a href="https://luchsia.com" class="product-link" target="_blank" rel="noopener">luchsia.com →</a>
+      </div>
+      <div class="luchsia-stats">
+        <div class="luchsia-stat">
+          <div class="luchsia-num">19</div>
+          <div class="luchsia-label">Microservices powering the platform</div>
+        </div>
+        <div class="luchsia-stat">
+          <div class="luchsia-num">5</div>
+          <div class="luchsia-label">Programming languages in the stack</div>
+        </div>
+        <div class="luchsia-stat">
+          <div class="luchsia-num">E2EE</div>
+          <div class="luchsia-label">Signal Protocol encrypted messaging</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SETSO -->
+<section class="setso-section section" id="setso">
+  <div class="setso-layout">
+    <div class="reveal">
+      <p class="t-eyebrow">Coming After Luvart</p>
+      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">The knowledge that was always there</h2>
+      <p class="setso-problem">
+        A child in Venda who sees a bird and wants to know more is forced to know its English name or receive nothing useful. A student in Limpopo researching their clan's history must think in English to retrieve knowledge that was never English to begin with.<br><br>
+        The knowledge exists. The retrieval system was built for a different human.<br><br>
+        Setso changes that. Search as you are. In the language you think in.
+      </p>
+      <div class="lang-label">Tier 1 Launch Languages</div>
+      <div class="lang-pills">
+        <div class="lang-pill">Swahili</div>
+        <div class="lang-pill">Hausa</div>
+        <div class="lang-pill">Yoruba</div>
+        <div class="lang-pill">Amharic</div>
+        <div class="lang-pill">Zulu</div>
+      </div>
+      <div class="lang-label" style="margin-top: 1rem;">Tier 2 Expansion</div>
+      <div class="lang-pills">
+        <div class="lang-pill t2">Igbo</div>
+        <div class="lang-pill t2">Oromo</div>
+        <div class="lang-pill t2">Xhosa</div>
+        <div class="lang-pill t2">Shona</div>
+        <div class="lang-pill t2">Sesotho</div>
+        <div class="lang-pill t2">+ More</div>
+      </div>
+      <p class="setso-note">Launching regionally — beginning Southern Africa</p>
+    </div>
+    <div class="reveal">
+      <div class="setso-layers">
+        <div class="setso-layer">
+          <div class="setso-layer-title">Language & Dialect Layer</div>
+          <div class="setso-layer-body">Identifies your language, dialect, and region. Normalises your query without losing cultural specificity.</div>
+        </div>
+        <div class="setso-layer">
+          <div class="setso-layer-title">Cultural Context Layer</div>
+          <div class="setso-layer-body">Infers context from language, region, and query patterns. Resolves cultural concepts, proverbs, and local terminology.</div>
+        </div>
+        <div class="setso-layer">
+          <div class="setso-layer-title">Knowledge Graph Layer</div>
+          <div class="setso-layer-body">Traverses relationships between concepts, languages, regions, and heritage records across African communities.</div>
+        </div>
+        <div class="setso-layer">
+          <div class="setso-layer-title">Retrieval & Ranking Layer</div>
+          <div class="setso-layer-body">Results ranked by cultural relevance to this specific user. Returned in your language. No English required.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section">
+  <div class="about-layout">
+    <div class="reveal">
+      <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">The Company</p>
+      <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">THE LUVART PLATFORMS (PTY) LTD</h2>
+      <p class="t-body" style="color: var(--text-muted);">
+        A South African technology company building cultural digital infrastructure for Africa and the world. Founded on a single belief — that African communities, and cultural communities everywhere, deserve digital spaces that treat their identity as worthy of preservation rather than monetisation.
+      </p>
+    </div>
+    <div class="principles reveal">
+      <div class="principle">
+        <span class="principle-num">01</span>
+        <div>
+          <div class="principle-title">Mission-Alignment is Non-Negotiable</div>
+          <div class="principle-body">Every decision must feel like a natural extension of the platform's purpose. No exploitative ads. No compromises.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">02</span>
+        <div>
+          <div class="principle-title">Community-First</div>
+          <div class="principle-body">We monetise around the community, not from it. Trust is the most valuable asset we have.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">03</span>
+        <div>
+          <div class="principle-title">Data Sovereignty</div>
+          <div class="principle-body">Your stories belong to you. Your community's knowledge belongs to your community. We are a vessel, not an owner.</div>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="principle-num">04</span>
+        <div>
+          <div class="principle-title">Ubuntu by Design</div>
+          <div class="principle-body">I am because we are. This is not a tagline. It is the architectural principle behind every product decision we make.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder section" id="founder">
+  <div class="founder-layout">
+    <div class="reveal">
+      <p class="t-eyebrow">Leadership</p>
+      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">Built by someone who believes in it</h2>
+      <p class="t-body">Khomotjo built Luvart from the ground up — every microservice, every encryption layer, every line of infrastructure code — because he believed that privacy and cultural connection should never be a trade-off.</p>
+    </div>
+    <div class="founder-card reveal">
+      <div class="founder-name">Khomotjo Ngobeni</div>
+      <div class="founder-role">Founder & Software Engineer</div>
+      <div class="founder-bio">Software Engineer and Founder of THE LUVART PLATFORMS (PTY) LTD. Building at the intersection of distributed systems, cultural identity, and data sovereignty. Luvart's architecture spans 19 microservices across Rust, Go, Python, C++, Lua, and Flutter — built because African communities deserve infrastructure as serious as their heritage.</div>
+      <div class="founder-links">
+        <a href="https://linkedin.com/in/khomotjo-ngobeni-674278387" class="founder-link" target="_blank" rel="noopener">↗ LinkedIn — khomotjo-ngobeni</a>
+        <a href="mailto:khomotjo.ngobeni@luchsia.com" class="founder-link">↗ khomotjo.ngobeni@luchsia.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-pattern"></div>
+  <div class="waitlist-content reveal">
+    <h2 class="waitlist-title">Be among the first</h2>
+    <p class="waitlist-sub">Luvart is coming. Join the waitlist and be part of the founding community — the people who believed before the doors opened.</p>
+    <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/mjglolpy" method="POST">
+      <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit" id="waitlist-btn">Join Waitlist</button>
+    </form>
+    <p class="waitlist-privacy" id="waitlist-msg">We will never sell your email. Ever.</p>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<div class="legal">
+  <div class="legal-title">Legal</div>
+  <div class="legal-links">
+    <a href="legal/privacy-policy.html">Privacy Policy</a>
+    <a href="legal/terms-of-service.html">Terms of Service</a>
+    <a href="legal/community-guidelines.html">Community Guidelines</a>
+    <a href="legal/safety-security-faq.html">Safety & Security FAQ</a>
+    <a href="legal/delete-account.html">Account Deletion</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-brand-name">THE LUVART PLATFORMS (PTY) LTD</div>
+    <div class="footer-brand-desc">Registered in South Africa. Building cultural digital infrastructure for Africa and the world.</div>
+    <div class="footer-tagline">Built in South Africa. Built for Africa.<br>Built for everyone Africa produced.</div>
+  </div>
+  <div class="footer-cols">
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-col-links">
+        <li><a href="#home">Luvart</a></li>
+        <li><a href="#setso">Setso (Coming Soon)</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Infrastructure</div>
+      <ul class="footer-col-links">
+        <li><a href="https://luchsia.com" target="_blank" rel="noopener">Luchsia</a></li>
+        <li><a href="https://luvart.luchsia.com" target="_blank" rel="noopener">luvart.luchsia.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-col-links">
+        <li><a href="legal/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="legal/terms-of-service.html">Terms of Service</a></li>
+        <li><a href="legal/community-guidelines.html">Community Guidelines</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-col-links">
+        <li><a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a></li>
+        <li><a href="#waitlist">Join the Waitlist</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</span>
+    <span class="footer-copy">Ubuntu · Privacy-first · Ad-free</span>
+  </div>
+</footer>
+
+<script>
+  // ── HAMBURGER ──
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('drawer');
+  let drawerOpen = false;
+
+  function closeDrawer() {
+    drawerOpen = false;
+    hamburger.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    drawerOpen = !drawerOpen;
+    hamburger.classList.toggle('open', drawerOpen);
+    drawer.classList.toggle('open', drawerOpen);
+    document.body.style.overflow = drawerOpen ? 'hidden' : '';
+  });
+
+  // Close drawer on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && drawerOpen) closeDrawer();
+  });
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // ── NAV SHADOW ON SCROLL ──
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 10
+      ? '0 2px 20px rgba(26,14,0,0.12)'
+      : 'none';
+  }, { passive: true });
+
+  // ── HERO FORM (Formspree) ──
+  const heroForm = document.getElementById('hero-form');
+  const heroBtn = document.getElementById('hero-btn');
+  const heroMsg = document.getElementById('hero-msg');
+
+  if (heroForm) {
+    heroForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      heroBtn.textContent = 'Sending...';
+      heroBtn.disabled = true;
+
+      try {
+        const response = await fetch(heroForm.action, {
+          method: 'POST',
+          body: new FormData(heroForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          heroForm.innerHTML = '';
+          heroMsg.textContent = "You're on the list. We'll be in touch.";
+          heroMsg.style.opacity = '1';
+          heroMsg.style.color = 'var(--gold)';
+          heroMsg.style.fontSize = '1rem';
+        } else {
+          heroBtn.textContent = 'Join the Waitlist';
+          heroBtn.disabled = false;
+          heroMsg.textContent = 'Something went wrong. Please try again.';
+          heroMsg.style.opacity = '1';
+          heroMsg.style.color = 'var(--rust)';
+        }
+      } catch {
+        heroBtn.textContent = 'Join the Waitlist';
+        heroBtn.disabled = false;
+        heroMsg.textContent = 'Something went wrong. Please try again.';
+        heroMsg.style.opacity = '1';
+        heroMsg.style.color = 'var(--rust)';
+      }
+    });
+  }
+
+  // ── WAITLIST FORM (Formspree) ──
+  const waitlistForm = document.getElementById('waitlist-form');
+  const waitlistBtn = document.getElementById('waitlist-btn');
+  const waitlistMsg = document.getElementById('waitlist-msg');
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      waitlistBtn.textContent = 'Sending...';
+      waitlistBtn.disabled = true;
+
+      try {
+        const response = await fetch(waitlistForm.action, {
+          method: 'POST',
+          body: new FormData(waitlistForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          waitlistForm.innerHTML = '';
+          waitlistMsg.textContent = "You're on the list. We'll be in touch.";
+          waitlistMsg.style.opacity = '1';
+          waitlistMsg.style.color = 'var(--gold)';
+          waitlistMsg.style.fontSize = '1rem';
+        } else {
+          waitlistBtn.textContent = 'Join Waitlist';
+          waitlistBtn.disabled = false;
+          waitlistMsg.textContent = 'Something went wrong. Please try again.';
+          waitlistMsg.style.opacity = '1';
+          waitlistMsg.style.color = 'var(--rust)';
+        }
+      } catch {
+        waitlistBtn.textContent = 'Join Waitlist';
+        waitlistBtn.disabled = false;
+        waitlistMsg.textContent = 'Something went wrong. Please try again.';
+        waitlistMsg.style.opacity = '1';
+        waitlistMsg.style.color = 'var(--rust)';
+      }
+    });
+  }
+
+  // ── SMOOTH ANCHOR SCROLL (accounts for fixed nav) ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const navH = document.querySelector('nav').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
