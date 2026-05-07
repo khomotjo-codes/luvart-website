@@ -1488,11 +1488,11 @@
   <div class="waitlist-content reveal">
     <h2 class="waitlist-title">Be among the first</h2>
     <p class="waitlist-sub">Luvart is coming. Join the waitlist and be part of the founding community — the people who believed before the doors opened.</p>
-    <form class="waitlist-form" onsubmit="return false;">
-      <input type="email" placeholder="Your email address" autocomplete="email">
-      <button type="submit">Join Waitlist</button>
+    <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/mjglolpy" method="POST">
+      <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+      <button type="submit" id="waitlist-btn">Join Waitlist</button>
     </form>
-    <p class="waitlist-privacy">We will never sell your email. Ever.</p>
+    <p class="waitlist-privacy" id="waitlist-msg">We will never sell your email. Ever.</p>
   </div>
 </section>
 
@@ -1500,11 +1500,11 @@
 <div class="legal">
   <div class="legal-title">Legal</div>
   <div class="legal-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Service</a>
-    <a href="#">Community Guidelines</a>
-    <a href="#">Safety & Security FAQ</a>
-    <a href="#">Account Deletion</a>
+    <a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/PRIVACY_POLICY.md" target="_blank" rel="noopener">Privacy Policy</a>
+    <a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/TERMS_OF_SERVICE.md" target="_blank" rel="noopener">Terms of Service</a>
+    <a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/COMMUNITY_GUIDELINES.md" target="_blank" rel="noopener">Community Guidelines</a>
+    <a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/SAFETY_SECURITY_FAQ.md" target="_blank" rel="noopener">Safety & Security FAQ</a>
+    <a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/DELETE_ACCOUNT.md" target="_blank" rel="noopener">Account Deletion</a>
   </div>
 </div>
 
@@ -1533,9 +1533,9 @@
     <div>
       <div class="footer-col-title">Legal</div>
       <ul class="footer-col-links">
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Community Guidelines</a></li>
+        <li><a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/PRIVACY_POLICY.md" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/TERMS_OF_SERVICE.md" target="_blank" rel="noopener">Terms of Service</a></li>
+        <li><a href="https://github.com/khomotjo-codes/Privacy-Policy/blob/main/COMMUNITY_GUIDELINES.md" target="_blank" rel="noopener">Community Guidelines</a></li>
       </ul>
     </div>
     <div>
@@ -1597,6 +1597,47 @@
       ? '0 2px 20px rgba(26,14,0,0.12)'
       : 'none';
   }, { passive: true });
+
+  // ── WAITLIST FORM (Formspree) ──
+  const waitlistForm = document.getElementById('waitlist-form');
+  const waitlistBtn = document.getElementById('waitlist-btn');
+  const waitlistMsg = document.getElementById('waitlist-msg');
+
+  if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      waitlistBtn.textContent = 'Sending...';
+      waitlistBtn.disabled = true;
+
+      try {
+        const response = await fetch(waitlistForm.action, {
+          method: 'POST',
+          body: new FormData(waitlistForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          waitlistForm.innerHTML = '';
+          waitlistMsg.textContent = "You're on the list. We'll be in touch.";
+          waitlistMsg.style.opacity = '1';
+          waitlistMsg.style.color = 'var(--gold)';
+          waitlistMsg.style.fontSize = '1rem';
+        } else {
+          waitlistBtn.textContent = 'Join Waitlist';
+          waitlistBtn.disabled = false;
+          waitlistMsg.textContent = 'Something went wrong. Please try again.';
+          waitlistMsg.style.opacity = '1';
+          waitlistMsg.style.color = 'var(--rust)';
+        }
+      } catch {
+        waitlistBtn.textContent = 'Join Waitlist';
+        waitlistBtn.disabled = false;
+        waitlistMsg.textContent = 'Something went wrong. Please try again.';
+        waitlistMsg.style.opacity = '1';
+        waitlistMsg.style.color = 'var(--rust)';
+      }
+    });
+  }
 
   // ── SMOOTH ANCHOR SCROLL (accounts for fixed nav) ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
