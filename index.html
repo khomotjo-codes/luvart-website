@@ -333,6 +333,7 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* CHANGE 1: warm-white instead of gold for contrast */
   .ubuntu-strip span {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -344,7 +345,7 @@
   .ubuntu-dot {
     width: 4px;
     height: 4px;
-    background: var(--gold);
+    background: rgba(253, 248, 240, 0.5);
     border-radius: 50%;
     flex-shrink: 0;
     display: inline-block;
@@ -1196,7 +1197,7 @@
   <a href="#setso" class="drawer-link" onclick="closeDrawer()">Setso</a>
   <a href="#founder" class="drawer-link" onclick="closeDrawer()">Founder</a>
   <a href="#waitlist" class="drawer-cta" onclick="closeDrawer()">Join the Waitlist</a>
-  <div class="drawer-footer">THE LUVART PLATFORMS (PTY) LTD · Built in South Africa</div>
+  <div class="drawer-footer">THE LUVART PLATFORMS (PTY) LTD · Born in South Africa. Built for every culture on earth.</div>
 </div>
 
 <!-- HERO -->
@@ -1206,7 +1207,8 @@
   <div class="hero-content">
     <p class="hero-eyebrow t-eyebrow">THE LUVART PLATFORMS (PTY) LTD</p>
     <h1 class="hero-title t-display">I am because<br><em>we are.</em></h1>
-    <p class="hero-sub t-body">A cultural social media platform where heritage comes first, traditions are preserved, and authentic human connection is possible again.</p>
+    <!-- CHANGE 2: "every heritage" and "every tradition" -->
+    <p class="hero-sub t-body">A cultural social media platform where every heritage comes first, every tradition has a home, and authentic human connection is possible again.</p>
     <p class="hero-tagline">BUILT FOR THE CULTURE. BUILT BY THE CULTURE.</p>
     <form class="hero-form" id="hero-form" action="https://formspree.io/f/mjglolpy" method="POST">
       <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
@@ -1217,13 +1219,14 @@
 </section>
 
 <!-- UBUNTU STRIP -->
+<!-- CHANGE 1: warm-white text (via CSS above), updated copy -->
 <div class="ubuntu-strip" aria-hidden="true">
   <div class="ubuntu-strip-inner">
     <span>"I am because we are"</span>
     <span class="ubuntu-dot"></span>
     <span>Ad-free · Privacy-first · Ubuntu</span>
     <span class="ubuntu-dot"></span>
-    <span>Built in South Africa. Built for Africa.</span>
+    <span>Every Culture. One Platform.</span>
     <span class="ubuntu-dot"></span>
     <span>Your culture deserves more than a hashtag</span>
     <span class="ubuntu-dot"></span>
@@ -1231,7 +1234,7 @@
     <span class="ubuntu-dot"></span>
     <span>Ad-free · Privacy-first · Ubuntu</span>
     <span class="ubuntu-dot"></span>
-    <span>Built in South Africa. Built for Africa.</span>
+    <span>Every Culture. One Platform.</span>
     <span class="ubuntu-dot"></span>
     <span>Your culture deserves more than a hashtag</span>
     <span class="ubuntu-dot"></span>
@@ -1337,7 +1340,8 @@
       <span class="product-eyebrow">Knowledge Search — Coming Soon</span>
       <div class="product-name">Setso</div>
       <div class="product-tagline">Tradition, in every tongue it was born in.</div>
-      <div class="product-desc">An African multilingual cultural knowledge search engine. Search in the language you think in. Setso does the translation work — not you. Powered by authentic cultural data from Luvart communities.</div>
+      <!-- CHANGE 6: removed "African", expanded scope -->
+      <div class="product-desc">A multilingual cultural knowledge search engine for every language that deserves to exist on the internet. Search in the language you think in. Setso does the translation work — not you.</div>
       <a href="#setso" class="product-link">Learn More →</a>
     </div>
     <div class="product-card product-luchsia reveal">
@@ -1394,7 +1398,8 @@
         <div class="lang-pill t2">Sesotho</div>
         <div class="lang-pill t2">+ More</div>
       </div>
-      <p class="setso-note">Launching regionally — beginning Southern Africa</p>
+      <!-- CHANGE 5: signals India launch + global expansion -->
+      <p class="setso-note">Launching in Southern Africa and India — expanding globally</p>
     </div>
     <div class="reveal">
       <div class="setso-layers">
@@ -1408,7 +1413,7 @@
         </div>
         <div class="setso-layer">
           <div class="setso-layer-title">Knowledge Graph Layer</div>
-          <div class="setso-layer-body">Traverses relationships between concepts, languages, regions, and heritage records across African communities.</div>
+          <div class="setso-layer-body">Traverses relationships between concepts, languages, regions, and heritage records across communities worldwide.</div>
         </div>
         <div class="setso-layer">
           <div class="setso-layer-title">Retrieval & Ranking Layer</div>
@@ -1425,8 +1430,9 @@
     <div class="reveal">
       <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">The Company</p>
       <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">THE LUVART PLATFORMS (PTY) LTD</h2>
+      <!-- CHANGE 3: mission leads, geography follows -->
       <p class="t-body" style="color: var(--text-muted);">
-        A South African technology company building cultural digital infrastructure for Africa and the world. Founded on a single belief — that African communities, and cultural communities everywhere, deserve digital spaces that treat their identity as worthy of preservation rather than monetisation.
+        A South African technology company building cultural digital infrastructure for every community on earth — beginning at home. Founded on a single belief — that cultural communities everywhere deserve digital spaces that treat their identity as worthy of preservation rather than monetisation.
       </p>
     </div>
     <div class="principles reveal">
@@ -1473,7 +1479,7 @@
     <div class="founder-card reveal">
       <div class="founder-name">Khomotjo Ngobeni</div>
       <div class="founder-role">Founder & Software Engineer</div>
-      <div class="founder-bio">Software Engineer and Founder of THE LUVART PLATFORMS (PTY) LTD. Building at the intersection of distributed systems, cultural identity, and data sovereignty. Luvart's architecture spans 19 microservices across Rust, Go, Python, C++, Lua, and Flutter — built because African communities deserve infrastructure as serious as their heritage.</div>
+      <div class="founder-bio">Software Engineer and Founder of THE LUVART PLATFORMS (PTY) LTD. Building at the intersection of distributed systems, cultural identity, and data sovereignty. Luvart's architecture spans 19 microservices across Rust, Go, Python, C++, Lua, and Flutter — built because every community deserves infrastructure as serious as their heritage.</div>
       <div class="founder-links">
         <a href="https://linkedin.com/in/khomotjo-ngobeni-674278387" class="founder-link" target="_blank" rel="noopener">↗ LinkedIn — khomotjo-ngobeni</a>
         <a href="mailto:khomotjo.ngobeni@luchsia.com" class="founder-link">↗ khomotjo.ngobeni@luchsia.com</a>
@@ -1512,8 +1518,9 @@
 <footer>
   <div class="footer-brand">
     <div class="footer-brand-name">THE LUVART PLATFORMS (PTY) LTD</div>
-    <div class="footer-brand-desc">Registered in South Africa. Building cultural digital infrastructure for Africa and the world.</div>
-    <div class="footer-tagline">Built in South Africa. Built for Africa.<br>Built for everyone Africa produced.</div>
+    <div class="footer-brand-desc">Registered in South Africa. Building cultural digital infrastructure for every community on earth.</div>
+    <!-- CHANGE 4: footer tagline rewritten -->
+    <div class="footer-tagline">Built in South Africa. Built for every culture on earth.</div>
   </div>
   <div class="footer-cols">
     <div>
@@ -1547,7 +1554,7 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</span>
-    <span class="footer-copy">Ubuntu · Privacy-first · Ad-free</span>
+    <span class="footer-copy">Every Culture. One Platform.</span>
   </div>
 </footer>
 
@@ -1571,7 +1578,6 @@
     document.body.style.overflow = drawerOpen ? 'hidden' : '';
   });
 
-  // Close drawer on resize to desktop
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024 && drawerOpen) closeDrawer();
   });
@@ -1597,7 +1603,7 @@
       : 'none';
   }, { passive: true });
 
-  // ── HERO FORM (Formspree) ──
+  // ── HERO FORM ──
   const heroForm = document.getElementById('hero-form');
   const heroBtn = document.getElementById('hero-btn');
   const heroMsg = document.getElementById('hero-msg');
@@ -1638,7 +1644,7 @@
     });
   }
 
-  // ── WAITLIST FORM (Formspree) ──
+  // ── WAITLIST FORM ──
   const waitlistForm = document.getElementById('waitlist-form');
   const waitlistBtn = document.getElementById('waitlist-btn');
   const waitlistMsg = document.getElementById('waitlist-msg');
@@ -1679,7 +1685,7 @@
     });
   }
 
-  // ── SMOOTH ANCHOR SCROLL (accounts for fixed nav) ──
+  // ── SMOOTH ANCHOR SCROLL ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const target = document.querySelector(anchor.getAttribute('href'));
