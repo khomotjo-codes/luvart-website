@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luvart — Built for the Culture. Built by the Culture.</title>
+<title>Luvart — A social platform for every culture on earth.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -339,12 +339,6 @@
   .product-setso .product-link { color: rgba(245,230,200,0.5); border-color: rgba(245,230,200,0.25); }
   .product-luchsia .product-link { color: var(--rust); border-color: var(--rust); }
 
-  .luchsia-stats { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
-
-  .luchsia-stat { display: flex; align-items: center; gap: 1rem; background: white; padding: 0.9rem 1.1rem; border-left: 3px solid var(--rust); }
-  .luchsia-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--rust); line-height: 1; flex-shrink: 0; }
-  .luchsia-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
-
   /* SETSO */
   .setso-section { background: var(--earth); }
   .setso-section .t-eyebrow { color: var(--gold); }
@@ -376,20 +370,6 @@
   .principle-num { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--rust); flex-shrink: 0; padding-top: 0.1rem; }
   .principle-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 0.3rem; }
   .principle-body { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
-
-  /* FOUNDER */
-  .founder { background: var(--earth); }
-  .founder .t-eyebrow { color: var(--gold); }
-  .founder .t-heading { color: var(--warm-white); margin: 0.75rem 0 1rem; }
-  .founder .t-body { color: rgba(245,230,200,0.6); margin-bottom: 2rem; }
-
-  .founder-card { border: 1px solid rgba(245,230,200,0.1); padding: 1.75rem; border-radius: 2px; }
-  .founder-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--warm-white); margin-bottom: 0.25rem; }
-  .founder-role { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; }
-  .founder-bio { font-size: 0.88rem; font-weight: 300; color: rgba(245,230,200,0.6); line-height: 1.75; margin-bottom: 1.5rem; }
-  .founder-links { display: flex; flex-direction: column; gap: 0.5rem; }
-  .founder-link { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(245,230,200,0.35); text-decoration: none; transition: color 0.2s; }
-  .founder-link:active { color: var(--gold); }
 
   /* WAITLIST */
   .waitlist { background: var(--rust); padding: 5rem 1.25rem; text-align: center; position: relative; overflow: hidden; }
@@ -479,17 +459,14 @@
     .mission-cards { flex-direction: column; }
     .coming-grid { grid-template-columns: repeat(3, 1fr); }
     .products-stack { display: grid; grid-template-columns: 1fr 1fr; }
-    .product-luchsia { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .luchsia-stats { margin-top: 0; }
+    .product-luchsia { grid-column: 1 / -1; }
     .setso-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .founder-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .feature-card:hover { background: var(--earth); }
     .feature-card:hover .feature-num { color: rgba(245,230,200,0.08); }
     .feature-card:hover .feature-title { color: var(--gold); }
     .feature-card:hover .feature-body { color: rgba(245,230,200,0.65); }
     .feature-card:hover::after { width: 100%; }
-    .founder-link:hover { color: var(--gold); }
     .legal-links a:hover { color: var(--rust); }
     .footer-col-links a:hover { color: var(--gold); }
     .footer-cols { grid-template-columns: repeat(4, 1fr); }
@@ -512,7 +489,6 @@
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#setso">Setso</a></li>
-      <li><a href="#founder">Founder</a></li>
       <li><a href="#waitlist" class="nav-cta-desktop">Join Waitlist</a></li>
     </ul>
     <div class="nav-right">
@@ -529,9 +505,8 @@
   <a href="#about" class="drawer-link" onclick="closeDrawer()">About</a>
   <a href="#products" class="drawer-link" onclick="closeDrawer()">Products</a>
   <a href="#setso" class="drawer-link" onclick="closeDrawer()">Setso</a>
-  <a href="#founder" class="drawer-link" onclick="closeDrawer()">Founder</a>
   <a href="#waitlist" class="drawer-cta" onclick="closeDrawer()">Join the Waitlist</a>
-  <div class="drawer-footer">THE LUVART PLATFORMS (PTY) LTD · Every culture. One platform.</div>
+  <div class="drawer-footer">LUVART · Every culture. One platform.</div>
 </div>
 
 <!-- HERO -->
@@ -539,10 +514,10 @@
   <div class="hero-pattern"></div>
   <div class="hero-blob"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow t-eyebrow">THE LUVART PLATFORMS (PTY) LTD</p>
-    <h1 class="hero-title t-display">I am because<br><em>we are.</em></h1>
-    <p class="hero-sub t-body">A cultural social media platform where every heritage comes first, every tradition has a home, and authentic human connection is possible again — for every community on earth.</p>
-    <p class="hero-tagline">BUILT FOR THE CULTURE. BUILT BY THE CULTURE.</p>
+    <p class="hero-eyebrow t-eyebrow">PRIVACY-FIRST SOCIAL MEDIA</p>
+    <h1 class="hero-title t-display">Social media for <em>your culture,</em> not the algorithm.</h1>
+    <p class="hero-sub t-body">Luvart is a social platform built for heritage, language, and tradition — where your community comes first, there are no ads, and your data is never sold.</p>
+    <p class="hero-tagline">AD-FREE. PRIVACY-FIRST. BUILT FOR EVERY CULTURE.</p>
     <form class="hero-form" id="hero-form" action="https://formspree.io/f/mjglolpy" method="POST">
       <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
       <button type="submit" id="hero-btn">Join the Waitlist</button>
@@ -554,21 +529,21 @@
 <!-- MARQUEE STRIP -->
 <div class="marquee-strip" aria-hidden="true">
   <div class="marquee-inner">
-    <span>Ad-free · Privacy-first · Culture-first</span>
+    <span>Ad-free</span>
     <span class="marquee-dot"></span>
-    <span>Every Culture. One Platform.</span>
+    <span>No data selling</span>
     <span class="marquee-dot"></span>
-    <span>Your culture deserves more than a hashtag</span>
+    <span>No third-party tracking</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No compromises.</span>
+    <span>Built for every culture</span>
     <span class="marquee-dot"></span>
-    <span>Ad-free · Privacy-first · Culture-first</span>
+    <span>Ad-free</span>
     <span class="marquee-dot"></span>
-    <span>Every Culture. One Platform.</span>
+    <span>No data selling</span>
     <span class="marquee-dot"></span>
-    <span>Your culture deserves more than a hashtag</span>
+    <span>No third-party tracking</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No compromises.</span>
+    <span>Built for every culture</span>
     <span class="marquee-dot"></span>
   </div>
 </div>
@@ -657,17 +632,10 @@
 <!-- PRODUCTS -->
 <section class="products section" id="products">
   <div class="reveal">
-    <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">Our Products</p>
-    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2rem;">Three pillars. One mission.</h2>
+    <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">From The Same Team</p>
+    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 2rem;">What we're building next</h2>
   </div>
   <div class="products-stack">
-    <div class="product-card product-luvart reveal">
-      <span class="product-eyebrow">Cultural Social Platform</span>
-      <div class="product-name">Luvart</div>
-      <div class="product-tagline">Built for the Culture. Built by the Culture.</div>
-      <div class="product-desc">A privacy-first cultural social media platform where heritage, tradition, and authentic human connection come first — for every community on earth. Ad-free. No data selling. No tracking.</div>
-      <a href="#waitlist" class="product-link">Join the Waitlist →</a>
-    </div>
     <div class="product-card product-setso reveal">
       <span class="product-eyebrow">Knowledge Search — Coming Soon</span>
       <div class="product-name">Setso</div>
@@ -676,27 +644,11 @@
       <a href="#setso" class="product-link">Learn More →</a>
     </div>
     <div class="product-card product-luchsia reveal">
-      <div>
-        <span class="product-eyebrow">Infrastructure Subsidiary</span>
-        <div class="product-name">Luchsia</div>
-        <div class="product-tagline">The infrastructure layer beneath everything.</div>
-        <div class="product-desc">Luchsia is a wholly-owned IaaS subsidiary of THE LUVART PLATFORMS (PTY) LTD, providing the encrypted, privacy-first microservices infrastructure that powers both Luvart and Setso. No third-party backend providers. No compromises on data sovereignty.</div>
-        <a href="https://luchsia.com" class="product-link" target="_blank" rel="noopener">luchsia.com →</a>
-      </div>
-      <div class="luchsia-stats">
-        <div class="luchsia-stat">
-          <div class="luchsia-num">19</div>
-          <div class="luchsia-label">Microservices powering the platform</div>
-        </div>
-        <div class="luchsia-stat">
-          <div class="luchsia-num">5</div>
-          <div class="luchsia-label">Programming languages in the stack</div>
-        </div>
-        <div class="luchsia-stat">
-          <div class="luchsia-num">E2EE</div>
-          <div class="luchsia-label">Signal Protocol encrypted messaging</div>
-        </div>
-      </div>
+      <span class="product-eyebrow">Infrastructure</span>
+      <div class="product-name">Luchsia</div>
+      <div class="product-tagline">The infrastructure layer beneath everything.</div>
+      <div class="product-desc">Luchsia is our infrastructure subsidiary, providing the encrypted, privacy-first backend that powers both Luvart and Setso. No third-party backend providers. No compromises on data sovereignty.</div>
+      <a href="https://luchsia.com" class="product-link" target="_blank" rel="noopener">luchsia.com →</a>
     </div>
   </div>
 </section>
@@ -762,7 +714,7 @@
   <div class="about-layout">
     <div class="reveal">
       <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">The Company</p>
-      <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">THE LUVART PLATFORMS (PTY) LTD</h2>
+      <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">Luvart</h2>
       <p class="t-body" style="color: var(--text-muted);">
         A technology company building cultural digital infrastructure for every community on earth. Founded on a single belief — that cultural communities everywhere deserve digital spaces that treat their identity as worthy of preservation rather than monetisation.
       </p>
@@ -793,28 +745,8 @@
         <span class="principle-num">04</span>
         <div>
           <div class="principle-title">Connection by Design</div>
-          <div class="principle-body">I am because we are. This is not a tagline. It is the architectural principle behind every product decision we make.</div>
+          <div class="principle-body">Every product decision starts from the same question: does this bring people closer to their culture and to each other.</div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="founder section" id="founder">
-  <div class="founder-layout">
-    <div class="reveal">
-      <p class="t-eyebrow">Leadership</p>
-      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">Built by someone who believes in it</h2>
-      <p class="t-body">Khomotjo built Luvart from the ground up — every microservice, every encryption layer, every line of infrastructure code — because he believed that privacy and cultural connection should never be a trade-off.</p>
-    </div>
-    <div class="founder-card reveal">
-      <div class="founder-name">Khomotjo Ngobeni</div>
-      <div class="founder-role">Founder & Software Engineer</div>
-      <div class="founder-bio">Software Engineer and Founder of THE LUVART PLATFORMS (PTY) LTD. Building at the intersection of distributed systems, cultural identity, and data sovereignty. Luvart's architecture spans 19 microservices across Rust, Go, Python, C++, Lua, and Flutter — built because every community on earth deserves infrastructure as serious as their heritage.</div>
-      <div class="founder-links">
-        <a href="https://linkedin.com/in/khomotjo-ngobeni-674278387" class="founder-link" target="_blank" rel="noopener">↗ LinkedIn — khomotjo-ngobeni</a>
-        <a href="mailto:khomotjo.ngobeni@luchsia.com" class="founder-link">↗ khomotjo.ngobeni@luchsia.com</a>
       </div>
     </div>
   </div>
@@ -849,7 +781,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <div class="footer-brand-name">THE LUVART PLATFORMS (PTY) LTD</div>
+    <div class="footer-brand-name">LUVART</div>
     <div class="footer-brand-desc">Building cultural digital infrastructure for every community on earth.</div>
     <div class="footer-tagline">Every culture. One platform.</div>
   </div>
@@ -878,13 +810,13 @@
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-col-links">
-        <li><a href="mailto:khomotjo.ngobeni@luchsia.com">khomotjo.ngobeni@luchsia.com</a></li>
+        <li><a href="mailto:hello@luvart.com">hello@luvart.com</a></li>
         <li><a href="#waitlist">Join the Waitlist</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.</span>
+    <span class="footer-copy">© 2026 Luvart. All rights reserved.</span>
     <span class="footer-copy">Every Culture. One Platform.</span>
   </div>
 </footer>
