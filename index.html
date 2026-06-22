@@ -189,7 +189,7 @@
 
   .hero-title em { font-style: italic; color: var(--gold); }
 
-  .hero-sub { color: rgba(245, 230, 200, 0.7); margin-bottom: 0.75rem; max-width: 520px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
+  .hero-sub { color: rgba(245, 230, 200, 0.7); margin-bottom: 0.75rem; max-width: 540px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s; }
 
   .hero-tagline {
     font-family: 'Space Mono', monospace;
@@ -295,6 +295,9 @@
   .feature-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(26,14,0,0.06); line-height: 1; margin-bottom: 0.75rem; transition: color 0.3s; }
   .feature-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--earth); margin-bottom: 0.5rem; transition: color 0.3s; }
   .feature-body { font-size: 0.88rem; font-weight: 300; color: var(--text-muted); line-height: 1.7; transition: color 0.3s; }
+  .feature-pulse { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); margin-top: 0.85rem; transition: color 0.3s; }
+  .feature-pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); flex-shrink: 0; }
+  .feature-card:active .feature-pulse, .feature-card:active .feature-pulse-dot { color: var(--gold); background: var(--gold); }
 
   /* COMING */
   .coming { background: var(--earth); position: relative; overflow: hidden; }
@@ -400,7 +403,7 @@
 
   .waitlist-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 3.5rem); font-weight: 900; color: var(--warm-white); line-height: 1.1; margin-bottom: 1rem; }
 
-  .waitlist-sub { font-size: 0.95rem; font-weight: 300; color: rgba(245,230,200,0.7); margin-bottom: 2.5rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.75; }
+  .waitlist-sub { font-size: 0.95rem; font-weight: 300; color: rgba(245,230,200,0.7); margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.75; }
 
   .waitlist-form { display: flex; flex-direction: column; gap: 0.6rem; max-width: 380px; margin: 0 auto; }
 
@@ -473,7 +476,7 @@
     .nav-links-desktop a:hover { color: var(--rust); }
     .nav-links-desktop .nav-cta-desktop { background: var(--rust); color: white; padding: 0.55rem 1.3rem; border-radius: 2px; }
     .nav-links-desktop .nav-cta-desktop:hover { background: var(--earth); color: white; }
-    .hero-content { max-width: 820px; }
+    .hero-content { max-width: 860px; }
     .hero-title { font-size: clamp(3.5rem, 6vw, 6rem); }
     .mission-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .mission-cards { flex-direction: column; }
@@ -488,6 +491,7 @@
     .feature-card:hover .feature-num { color: rgba(245,230,200,0.08); }
     .feature-card:hover .feature-title { color: var(--gold); }
     .feature-card:hover .feature-body { color: rgba(245,230,200,0.65); }
+    .feature-card:hover .feature-pulse, .feature-card:hover .feature-pulse-dot { color: var(--gold); background: var(--gold); }
     .feature-card:hover::after { width: 100%; }
     .founder-link:hover { color: var(--gold); }
     .legal-links a:hover { color: var(--rust); }
@@ -541,7 +545,7 @@
   <div class="hero-content">
     <p class="hero-eyebrow t-eyebrow">THE LUVART PLATFORMS (PTY) LTD</p>
     <h1 class="hero-title t-display">I am because<br><em>we are.</em></h1>
-    <p class="hero-sub t-body">A cultural social media platform where every heritage comes first, every tradition has a home, and authentic human connection is possible again — for every community on earth.</p>
+    <p class="hero-sub t-body">The internet flattened the world into one feed, one language, one idea of what's worth posting. Luvart is where that gets undone — a cultural platform where your language, your rituals, your arguments, and your jokes don't need to be translated to belong. Different is the point. Different is the strength.</p>
     <p class="hero-tagline">BUILT FOR THE CULTURE. BUILT BY THE CULTURE.</p>
     <form class="hero-form" id="hero-form" action="https://formspree.io/f/mjglolpy" method="POST">
       <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
@@ -554,21 +558,21 @@
 <!-- MARQUEE STRIP -->
 <div class="marquee-strip" aria-hidden="true">
   <div class="marquee-inner">
-    <span>Ad-free · Privacy-first · Culture-first</span>
+    <span>Your language is not a translation of the real one</span>
     <span class="marquee-dot"></span>
     <span>Every Culture. One Platform.</span>
     <span class="marquee-dot"></span>
-    <span>Your culture deserves more than a hashtag</span>
+    <span>Different is the strength, not the exception</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No compromises.</span>
+    <span>No ads. No tracking. No homogenising.</span>
     <span class="marquee-dot"></span>
-    <span>Ad-free · Privacy-first · Culture-first</span>
+    <span>Your language is not a translation of the real one</span>
     <span class="marquee-dot"></span>
     <span>Every Culture. One Platform.</span>
     <span class="marquee-dot"></span>
-    <span>Your culture deserves more than a hashtag</span>
+    <span>Different is the strength, not the exception</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No compromises.</span>
+    <span>No ads. No tracking. No homogenising.</span>
     <span class="marquee-dot"></span>
   </div>
 </div>
@@ -579,19 +583,19 @@
     <div class="reveal">
       <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">Our Mission</p>
       <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.25rem;">Culture is not content.<br>It is identity.</h2>
-      <p class="t-body" style="color: var(--text-muted); max-width: 520px;">
-        Mainstream platforms were not built for your language, your traditions, or your community. Luvart was.<br><br>
-        We built a home for the stories that matter — the ones passed down through generations, the ones that exist only in the languages they were born in, the ones that define who we are and who we become through each other.
+      <p class="t-body" style="color: var(--text-muted); max-width: 540px;">
+        Mainstream platforms were built around one default — one language to think in, one beauty standard, one idea of normal — and everyone else's culture gets treated as a niche add-on. That's not an accident. That's a hundred years of media built to flatten difference into one exportable, sellable version of culture.<br><br>
+        Luvart is a refusal of that default. It's a place to think, post, and speak first in your own tongue — not the one you were taught was the "real" one. To argue with your own community, in your own words, without performing for an audience that was never the point. This is identity reclamation, built into the product, not a value statement bolted onto it.
       </p>
     </div>
     <div class="mission-cards reveal">
       <div class="mission-card mission-card-dark">
-        <div class="mission-card-title">In a world that forgets</div>
-        <div class="mission-card-body">Every story shared, every indigenous language audio recorded, every tradition documented on Luvart is an act of preservation. Your culture deserves more than a hashtag.</div>
+        <div class="mission-card-title">Decolonising the feed</div>
+        <div class="mission-card-body">Every post in your mother tongue, every argument that doesn't get flattened for a global audience, every joke that doesn't need a footnote — that's the algorithm working for you instead of erasing you. Your culture was never the niche. It was always the point.</div>
       </div>
       <div class="mission-card mission-card-rust">
         <div class="mission-card-title" style="color: var(--warm-white);">Luvart connects</div>
-        <div class="mission-card-body">No ads. No data selling. No third-party tracking. Just culture, given a home worthy of it.</div>
+        <div class="mission-card-body">No ads. No data selling. No third-party tracking. Just culture, talking to itself and to the world, on its own terms.</div>
       </div>
     </div>
   </div>
@@ -607,22 +611,26 @@
     <div class="feature-card reveal">
       <div class="feature-num">01</div>
       <div class="feature-title">Cultural Stories</div>
-      <div class="feature-body">Share photos, videos, and stories from your real cultural life — traditional clothing, music, art, ceremonies, food, and the everyday moments that define your community. Not filtered. Not sanitised. Real.</div>
+      <div class="feature-body">Post what's actually happening — what you're cooking tonight, what you're wearing to the wedding this weekend, the song stuck in your head, the take you want your community's reaction to. Traditional clothing and ceremonies belong here too, but so does the ordinary Tuesday. Not filtered. Not sanitised. Not explained for outsiders.</div>
+      <div class="feature-pulse"><span class="feature-pulse-dot"></span>Live feed, not an exhibit</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-num">02</div>
       <div class="feature-title">Cultural Circles</div>
-      <div class="feature-body">Communities built around heritage, language, and shared tradition. Find your people. Welcome others. Grow together in spaces that honour who you are.</div>
+      <div class="feature-body">Spaces built around heritage, language, and shared tradition — where the conversation never stops. Ask a question and get an answer in hours, not years. Debate something with your own people. Welcome someone learning. This is where belonging happens in real time, not just where it's declared.</div>
+      <div class="feature-pulse"><span class="feature-pulse-dot"></span>Always something being discussed</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-num">03</div>
       <div class="feature-title">Culture Exchange Feed</div>
-      <div class="feature-body">Discover living traditions from every corner of the world. Filter by language, theme, or location. Curiosity without borders. Connection without translation.</div>
+      <div class="feature-body">Discover what other communities are living right now — not a curated, translated, watered-down version, the real thing, in the language it happens in. Filter by language, theme, or location. Curiosity without borders. Connection without flattening anyone to make it palatable.</div>
+      <div class="feature-pulse"><span class="feature-pulse-dot"></span>Updates daily, not archived</div>
     </div>
     <div class="feature-card reveal">
       <div class="feature-num">04</div>
-      <div class="feature-title">Indigenous Language Preservation</div>
-      <div class="feature-body">Your mother tongue belongs on the internet. Record songs, greetings, proverbs, and stories. Build a living archive of languages that mainstream platforms have never made space for.</div>
+      <div class="feature-title">Mother Tongue, First</div>
+      <div class="feature-body">Speak, post, and record in the language you actually think in — songs, greetings, proverbs, arguments, voice notes to your group chat. Every recording becomes part of a living language that mainstream platforms never made space for, but you're not making it for an archive. You're making it because that's how you talk.</div>
+      <div class="feature-pulse"><span class="feature-pulse-dot"></span>Used daily, not displayed</div>
     </div>
   </div>
 </section>
@@ -639,12 +647,12 @@
     <div class="coming-card reveal">
       <span class="coming-badge">In Development</span>
       <div class="coming-title">LuvMap</div>
-      <div class="coming-body">An interactive cultural map built on cultural borders — not political ones. A Zulu cultural region does not stop at a country line. A Māori territory does not end at a coastline. LuvMap reflects how culture actually lives in the world.</div>
+      <div class="coming-body">An interactive cultural map built on cultural borders — not political ones. A Zulu cultural region does not stop at a country line. A Māori territory does not end at a coastline. LuvMap reflects how culture actually lives in the world, on its own terms, not the ones drawn by colonial cartography.</div>
     </div>
     <div class="coming-card reveal">
       <span class="coming-badge">In Development</span>
       <div class="coming-title">Cultural Marketplace</div>
-      <div class="coming-body">Buy and sell authentic handmade crafts and artwork directly from cultural creators worldwide. No middlemen. No mass production. Just culture, sold by the people who made it.</div>
+      <div class="coming-body">Buy and sell authentic handmade crafts and artwork directly from cultural creators worldwide. No middlemen. No mass production. No knockoffs sold back to you at a markup. Just culture, sold by the people who made it, on their terms.</div>
     </div>
     <div class="coming-card reveal">
       <span class="coming-badge">Premium — Coming Soon</span>
@@ -665,7 +673,7 @@
       <span class="product-eyebrow">Cultural Social Platform</span>
       <div class="product-name">Luvart</div>
       <div class="product-tagline">Built for the Culture. Built by the Culture.</div>
-      <div class="product-desc">A privacy-first cultural social media platform where heritage, tradition, and authentic human connection come first — for every community on earth. Ad-free. No data selling. No tracking.</div>
+      <div class="product-desc">A privacy-first cultural social platform where your language, your rituals, and your community's real, everyday life come first — for every community on earth. Ad-free. No data selling. No tracking.</div>
       <a href="#waitlist" class="product-link">Join the Waitlist →</a>
     </div>
     <div class="product-card product-setso reveal">
@@ -709,7 +717,7 @@
       <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">The knowledge that was always there</h2>
       <p class="setso-problem">
         A child forced to know a bird's English name just to learn about it. A student who must think in a second language to retrieve knowledge that was never in that language to begin with. A speaker of Welsh, Tamil, Quechua, or Yoruba who finds the internet has no place for the language they dream in.<br><br>
-        The knowledge exists. The retrieval system was built for a different human.<br><br>
+        This isn't a gap in translation. It's a hundred years of search and knowledge systems built around one language and calling it universal.<br><br>
         Setso changes that. Search as you are. In the language you think in.
       </p>
       <div class="lang-label">Phase 1 Launch Languages</div>
@@ -764,7 +772,7 @@
       <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">The Company</p>
       <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">THE LUVART PLATFORMS (PTY) LTD</h2>
       <p class="t-body" style="color: var(--text-muted);">
-        A technology company building cultural digital infrastructure for every community on earth. Founded on a single belief — that cultural communities everywhere deserve digital spaces that treat their identity as worthy of preservation rather than monetisation.
+        A technology company building cultural digital infrastructure for every community on earth. Founded on a single belief — that difference is not something platforms should flatten in pursuit of scale, but the thing worth building scale around.
       </p>
     </div>
     <div class="principles reveal">
@@ -999,6 +1007,3 @@
 </script>
 </body>
 </html>
-
-
-
