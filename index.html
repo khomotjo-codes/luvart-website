@@ -394,6 +394,16 @@
   .founder-link { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(245,230,200,0.35); text-decoration: none; transition: color 0.2s; }
   .founder-link:active { color: var(--gold); }
 
+  /* TEAM (formerly FOUNDER) */
+  .team-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .team-card { border: 1px solid rgba(245,230,200,0.1); padding: 1.5rem; border-radius: 2px; }
+  .team-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--warm-white); margin-bottom: 0.2rem; }
+  .team-role { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.85rem; }
+  .team-bio { font-size: 0.84rem; font-weight: 300; color: rgba(245,230,200,0.6); line-height: 1.7; margin-bottom: 1rem; }
+  .team-links { display: flex; flex-direction: column; gap: 0.4rem; }
+  .team-link { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: rgba(245,230,200,0.35); text-decoration: none; transition: color 0.2s; }
+  .team-link:active { color: var(--gold); }
+
   /* WAITLIST */
   .waitlist { background: var(--rust); padding: 5rem 1.25rem; text-align: center; position: relative; overflow: hidden; }
 
@@ -463,6 +473,7 @@
     .legal-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
     .footer-cols { grid-template-columns: repeat(3, 1fr); }
     .footer-bottom { flex-direction: row; justify-content: space-between; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; }
   }
 
   @media (min-width: 1024px) {
@@ -486,7 +497,7 @@
     .luchsia-stats { margin-top: 0; }
     .setso-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .founder-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .founder-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .feature-card:hover { background: var(--earth); }
     .feature-card:hover .feature-num { color: rgba(245,230,200,0.08); }
     .feature-card:hover .feature-title { color: var(--gold); }
@@ -494,9 +505,11 @@
     .feature-card:hover .feature-pulse, .feature-card:hover .feature-pulse-dot { color: var(--gold); background: var(--gold); }
     .feature-card:hover::after { width: 100%; }
     .founder-link:hover { color: var(--gold); }
+    .team-link:hover { color: var(--gold); }
     .legal-links a:hover { color: var(--rust); }
     .footer-col-links a:hover { color: var(--gold); }
     .footer-cols { grid-template-columns: repeat(4, 1fr); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
   }
 
   @media (min-width: 1280px) {
@@ -516,7 +529,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#setso">Setso</a></li>
-      <li><a href="#founder">Founder</a></li>
+      <li><a href="#founder">Team</a></li>
       <li><a href="#waitlist" class="nav-cta-desktop">Join Waitlist</a></li>
     </ul>
     <div class="nav-right">
@@ -533,7 +546,7 @@
   <a href="#about" class="drawer-link" onclick="closeDrawer()">About</a>
   <a href="#products" class="drawer-link" onclick="closeDrawer()">Products</a>
   <a href="#setso" class="drawer-link" onclick="closeDrawer()">Setso</a>
-  <a href="#founder" class="drawer-link" onclick="closeDrawer()">Founder</a>
+  <a href="#founder" class="drawer-link" onclick="closeDrawer()">Team</a>
   <a href="#waitlist" class="drawer-cta" onclick="closeDrawer()">Join the Waitlist</a>
   <div class="drawer-footer">THE LUVART PLATFORMS (PTY) LTD · Every culture. One platform.</div>
 </div>
@@ -679,7 +692,7 @@
     <div class="product-card product-setso reveal">
       <span class="product-eyebrow">Knowledge Search — Coming Soon</span>
       <div class="product-name">Setso</div>
-      <div class="product-tagline">Knowledge, in every tongue it was born in.</div>
+      <div class="product-tagline">Knowledge, growing in every tongue that speaks it.</div>
       <div class="product-desc">A multilingual cultural knowledge search engine for every language on earth. Search in the language you think in — whether that's Yoruba, Tamil, Welsh, or Quechua. Setso does the translation work. Not you.</div>
       <a href="#setso" class="product-link">Learn More →</a>
     </div>
@@ -714,11 +727,11 @@
   <div class="setso-layout">
     <div class="reveal">
       <p class="t-eyebrow">Coming After Luvart</p>
-      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">The knowledge that was always there</h2>
+      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">The knowledge being made every day</h2>
       <p class="setso-problem">
         A child forced to know a bird's English name just to learn about it. A student who must think in a second language to retrieve knowledge that was never in that language to begin with. A speaker of Welsh, Tamil, Quechua, or Yoruba who finds the internet has no place for the language they dream in.<br><br>
         This isn't a gap in translation. It's a hundred years of search and knowledge systems built around one language and calling it universal.<br><br>
-        Setso changes that. Search as you are. In the language you think in.
+        Setso changes that. Search as you are. In the language you think in. Powered by what communities on Luvart are sharing right now, so the answers grow as the conversation does.
       </p>
       <div class="lang-label">Phase 1 Launch Languages</div>
       <div class="lang-pills">
@@ -754,7 +767,7 @@
         </div>
         <div class="setso-layer">
           <div class="setso-layer-title">Knowledge Graph Layer</div>
-          <div class="setso-layer-body">Traverses relationships between concepts, languages, regions, and heritage records across communities worldwide.</div>
+          <div class="setso-layer-body">Traverses relationships between concepts, languages, regions, and the everyday culture communities are creating worldwide.</div>
         </div>
         <div class="setso-layer">
           <div class="setso-layer-title">Retrieval & Ranking Layer</div>
@@ -772,7 +785,7 @@
       <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">The Company</p>
       <h2 class="t-heading" style="font-size: clamp(1.4rem, 3vw, 2.2rem); margin-bottom: 1.25rem;">THE LUVART PLATFORMS (PTY) LTD</h2>
       <p class="t-body" style="color: var(--text-muted);">
-        A technology company building cultural digital infrastructure for every community on earth. Founded on a single belief — that difference is not something platforms should flatten in pursuit of scale, but the thing worth building scale around.
+        A technology company building cultural digital infrastructure for every community on earth. Founded on a single belief — that difference is not something platforms should flatten in pursuit of scale, but the thing worth building scale around. We believe that when cultures are visible to each other instead of flattened into one default, understanding follows — and understanding is what unity is actually built from.
       </p>
     </div>
     <div class="principles reveal">
@@ -801,28 +814,45 @@
         <span class="principle-num">04</span>
         <div>
           <div class="principle-title">Connection by Design</div>
-          <div class="principle-body">I am because we are. This is not a tagline. It is the architectural principle behind every product decision we make.</div>
+          <div class="principle-body">I am because we are. Different communities, seen on their own terms, building one shared sense of belonging — that is the architectural principle behind every product decision we make.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER -->
+<!-- TEAM -->
 <section class="founder section" id="founder">
   <div class="founder-layout">
     <div class="reveal">
-      <p class="t-eyebrow">Leadership</p>
-      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">Built by someone who believes in it</h2>
-      <p class="t-body">Khomotjo built Luvart from the ground up — every microservice, every encryption layer, every line of infrastructure code — because he believed that privacy and cultural connection should never be a trade-off.</p>
+      <p class="t-eyebrow">Our Team</p>
+      <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">Built by people who believe in it</h2>
+      <p class="t-body">The Luvart Platforms is built by a small team spanning engineering, knowledge systems, cultural partnerships, and community growth — each person working on a different piece of the same belief: that every culture deserves digital infrastructure as serious as its heritage.</p>
     </div>
-    <div class="founder-card reveal">
-      <div class="founder-name">Khomotjo Ngobeni</div>
-      <div class="founder-role">Founder & Software Engineer</div>
-      <div class="founder-bio">Software Engineer and Founder of THE LUVART PLATFORMS (PTY) LTD. Building at the intersection of distributed systems, cultural identity, and data sovereignty. Luvart's architecture spans 19 microservices across Rust, Go, Python, C++, Lua, and Flutter — built because every community on earth deserves infrastructure as serious as their heritage.</div>
-      <div class="founder-links">
-        <a href="https://linkedin.com/in/khomotjo-ngobeni-674278387" class="founder-link" target="_blank" rel="noopener">↗ LinkedIn — khomotjo-ngobeni</a>
-        <a href="mailto:khomotjo.ngobeni@luchsia.com" class="founder-link">↗ khomotjo.ngobeni@luchsia.com</a>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-name">Khomotjo Ngobeni</div>
+        <div class="team-role">Founder & CEO / Lead Engineer</div>
+        <div class="team-bio">Built Luvart's 19-microservice architecture from the ground up — encrypted messaging, identity systems, and real-time presence — and leads product direction and company strategy.</div>
+        <div class="team-links">
+          <a href="https://linkedin.com/in/khomotjo-ngobeni-674278387" class="team-link" target="_blank" rel="noopener">↗ LinkedIn — khomotjo-ngobeni</a>
+          <a href="mailto:khomotjo.ngobeni@luchsia.com" class="team-link">↗ khomotjo.ngobeni@luchsia.com</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Lesego Senwamadi</div>
+        <div class="team-role">Knowledge Systems Lead</div>
+        <div class="team-bio">Brings academic grounding in information science and knowledge architecture, shaping the thinking behind Setso's knowledge graph alongside hands-on development work.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Suhaila Masola</div>
+        <div class="team-role">Head of Business Development &amp; Partnerships</div>
+        <div class="team-bio">Brings hands-on experience with local artists and cultural creators, building the institutional and community partnerships that ground Luvart's growth in real cultural relationships.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Avanthika P Lal</div>
+        <div class="team-role">Social Media Marketing Lead (India)</div>
+        <div class="team-bio">Leads social content strategy and community engagement for Luvart's early presence in India, one of the world's most linguistically and culturally diverse markets.</div>
       </div>
     </div>
   </div>
@@ -833,7 +863,7 @@
   <div class="waitlist-pattern"></div>
   <div class="waitlist-content reveal">
     <h2 class="waitlist-title">Be among the first</h2>
-    <p class="waitlist-sub">Luvart is coming. Join the waitlist and be part of the founding community — the people who believed before the doors opened.</p>
+    <p class="waitlist-sub">Luvart is coming. Join the waitlist and be among the first to shape it — the people who believed before the doors opened.</p>
     <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/mjglolpy" method="POST">
       <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
       <button type="submit" id="waitlist-btn">Join Waitlist</button>
