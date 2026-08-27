@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Sexual Abuse &amp; Exploitation Policy — Luvart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --earth:#1a0e00;
+    --rust:#c4441a;
+    --gold:#e8a020;
+    --sand:#f5e6c8;
+    --warm-white:#fdf8f0;
+    --deep:#0d0700;
+    --text-muted:#6b4f2a;
+    --danger:#9f2415;
+  }
+
+  *,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+  }
+
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--warm-white);
+    color:var(--earth);
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+
+  nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:200;
+    background:rgba(253,248,240,0.95);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(196,68,26,0.12);
+  }
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 1.25rem;
+    height:56px;
+  }
+
+  .nav-logo{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:1.3rem;
+    color:var(--rust);
+    text-decoration:none;
+    letter-spacing:-0.02em;
+  }
+
+  .nav-back{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--text-muted);
+    text-decoration:none;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:color 0.2s;
+  }
+
+  .nav-back:hover{
+    color:var(--rust);
+  }
+
+  .page-hero{
+    background:var(--earth);
+    padding:6rem 1.25rem 2.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .page-hero-pattern{
+    position:absolute;
+    inset:0;
+    opacity:0.04;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        var(--gold) 0,
+        var(--gold) 1px,
+        transparent 0,
+        transparent 40px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        var(--gold) 0,
+        var(--gold) 1px,
+        transparent 0,
+        transparent 40px
+      );
+    pointer-events:none;
+  }
+
+  .page-hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  .page-eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:0.75rem;
+  }
+
+  .page-title{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:clamp(2rem,6vw,3.5rem);
+    color:var(--warm-white);
+    line-height:1.05;
+    margin-bottom:1rem;
+  }
+
+  .page-meta{
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    color:rgba(245,230,200,0.35);
+    letter-spacing:0.1em;
+  }
+
+  .content-wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:3rem 1.25rem 5rem;
+  }
+
+  .content-wrap h2{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:clamp(1.2rem,2.5vw,1.6rem);
+    color:var(--earth);
+    margin-top:3rem;
+    margin-bottom:1rem;
+    padding-bottom:0.5rem;
+    border-bottom:1px solid rgba(26,14,0,0.08);
+  }
+
+  .content-wrap h3{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:1rem;
+    color:var(--rust);
+    margin-top:2rem;
+    margin-bottom:0.6rem;
+  }
+
+  .content-wrap p{
+    font-size:0.93rem;
+    font-weight:300;
+    color:var(--text-muted);
+    line-height:1.85;
+    margin-bottom:1rem;
+  }
+
+  .content-wrap ul,
+  .content-wrap ol{
+    padding-left:1.5rem;
+    margin-bottom:1rem;
+  }
+
+  .content-wrap li{
+    font-size:0.93rem;
+    font-weight:300;
+    color:var(--text-muted);
+    line-height:1.8;
+    margin-bottom:0.4rem;
+  }
+
+  .content-wrap strong{
+    font-weight:500;
+    color:var(--earth);
+  }
+
+  .content-wrap a{
+    color:var(--rust);
+    text-decoration:none;
+    border-bottom:1px solid rgba(196,68,26,0.3);
+    transition:border-color 0.2s;
+  }
+
+  .content-wrap a:hover{
+    border-color:var(--rust);
+  }
+
+  .section-label{
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:3rem 0 1rem;
+    display:block;
+  }
+
+  .notice{
+    background:rgba(232,160,32,0.08);
+    border-left:4px solid var(--gold);
+    padding:1.25rem 1.25rem;
+    margin:1.5rem 0 2rem;
+  }
+
+  .notice p{
+    margin:0;
+    color:var(--earth);
+  }
+
+  .urgent{
+    background:rgba(159,36,21,0.06);
+    border-left:4px solid var(--danger);
+    padding:1.5rem;
+    margin:2rem 0;
+  }
+
+  .urgent h3{
+    color:var(--danger);
+    margin-top:0;
+  }
+
+  .urgent p{
+    margin-bottom:0.75rem;
+  }
+
+  .closing-note{
+    background:var(--earth);
+    padding:2rem;
+    margin:2.5rem 0;
+    border-radius:2px;
+    border-left:4px solid var(--gold);
+  }
+
+  .closing-note p{
+    color:rgba(245,230,200,0.8);
+    margin:0;
+    font-style:italic;
+    font-size:0.9rem;
+    line-height:1.8;
+  }
+
+  .legal-footer{
+    background:var(--earth);
+    padding:2.5rem 1.25rem;
+    text-align:center;
+  }
+
+  .legal-footer-brand{
+    font-family:'Playfair Display',serif;
+    font-weight:900;
+    font-size:1.1rem;
+    color:var(--warm-white);
+    margin-bottom:0.5rem;
+  }
+
+  .legal-footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:1rem 2rem;
+    margin:1.25rem 0;
+  }
+
+  .legal-footer-links a{
+    font-family:'Space Mono',monospace;
+    font-size:0.62rem;
+    color:rgba(245,230,200,0.3);
+    text-decoration:none;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    transition:color 0.2s;
+  }
+
+  .legal-footer-links a:hover{
+    color:var(--gold);
+  }
+
+  .legal-footer-copy{
+    font-family:'Space Mono',monospace;
+    font-size:0.6rem;
+    color:rgba(245,230,200,0.15);
+    letter-spacing:0.08em;
+    margin-top:1rem;
+  }
+
+  @media(min-width:768px){
+    .nav-inner{
+      padding:0 3rem;
+    }
+
+    .page-hero{
+      padding:7rem 3rem 3rem;
+    }
+
+    .content-wrap{
+      padding:4rem 3rem 6rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Luvart</a>
+    <a href="../index.html" class="nav-back">← Back to site</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+
+  <div class="page-hero-content">
+    <p class="page-eyebrow">Safety &amp; Child Protection</p>
+
+    <h1 class="page-title">
+      Child Sexual Abuse &amp; Exploitation Policy
+    </h1>
+
+    <p class="page-meta">
+      Last Updated: 27 August 2026
+    </p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>
+    Luvart is committed to providing a safe environment for our community.
+    We have <strong>zero tolerance for child sexual abuse and exploitation
+    (CSAE)</strong> and do not permit content or behaviour that sexually
+    exploits, abuses, or endangers children.
+  </p>
+
+  <div class="notice">
+    <p>
+      <strong>Zero tolerance:</strong> Any content or activity involving the
+      sexual exploitation or abuse of children is prohibited on Luvart.
+    </p>
+  </div>
+
+  <span class="section-label">Our Standards</span>
+
+  <h2>1. Prohibited CSAE Content &amp; Behaviour</h2>
+
+  <p>
+    Luvart prohibits the creation, upload, sharing, solicitation,
+    distribution, or promotion of any content involving the sexual abuse
+    or exploitation of children.
+  </p>
+
+  <p>This includes, but is not limited to:</p>
+
+  <ul>
+    <li>
+      Sexualised content involving anyone under the age of 18.
+    </li>
+
+    <li>
+      Child sexual abuse material (CSAM), including images, videos, or other
+      media depicting or facilitating the sexual exploitation of children.
+    </li>
+
+    <li>
+      Sexual solicitation, grooming, or attempts to establish sexual contact
+      with a child.
+    </li>
+
+    <li>
+      Requests for, offers of, or attempts to obtain sexual images or
+      material involving children.
+    </li>
+
+    <li>
+      Content that encourages, promotes, glorifies, or facilitates the sexual
+      exploitation or abuse of children.
+    </li>
+
+    <li>
+      Attempts to move interactions involving children to another platform
+      for the purpose of sexual exploitation or abuse.
+    </li>
+
+    <li>
+      Any other behaviour that facilitates or attempts to facilitate the
+      sexual abuse or exploitation of a child.
+    </li>
+  </ul>
+
+  <h2>2. Age Safety</h2>
+
+  <p>
+    Luvart is committed to protecting children from sexual exploitation and
+    abuse. Users must provide accurate information about their age when
+    creating an account.
+  </p>
+
+  <p>
+    Users who are under the minimum age permitted to use Luvart are not
+    permitted to create or maintain an account.
+  </p>
+
+  <p>
+    Attempting to circumvent Luvart's age requirements, including by providing
+    false age information, is prohibited.
+  </p>
+
+  <h2>3. Grooming &amp; Sexual Solicitation</h2>
+
+  <p>
+    Luvart strictly prohibits grooming or attempts to establish an exploitative
+    relationship with a child.
+  </p>
+
+  <p>
+    This includes attempts to gain a child's trust for the purpose of
+    sexualisation, exploitation, obtaining sexual material, arranging sexual
+    contact, or otherwise facilitating abuse.
+  </p>
+
+  <h2>4. Reporting CSAE Content</h2>
+
+  <p>
+    We encourage users to report suspected child sexual abuse or exploitation
+    immediately.
+  </p>
+
+  <p>
+    Users can report a profile, post, comment, or other inappropriate
+    activity through the reporting functionality available within the Luvart
+    application.
+  </p>
+
+  <div class="urgent">
+
+    <h3>Urgent Safety Reports</h3>
+
+    <p>
+      If you encounter suspected child sexual abuse or exploitation on Luvart,
+      please report it immediately.
+    </p>
+
+    <p>
+      You may also contact our safety team directly at
+      <a href="mailto:khomotjo.ngobeni@luchsia.com">
+        khomotjo.ngobeni@luchsia.com
+      </a>
+      with the subject line
+      <strong>URGENT SAFETY — CSAE</strong>.
+    </p>
+
+    <p>
+      Please do not redistribute or forward suspected illegal material.
+      When reporting, provide the relevant account, post, or conversation
+      information that will help us locate the content.
+    </p>
+
+  </div>
+
+  <h2>5. Enforcement</h2>
+
+  <p>
+    Luvart may remove content and take action against accounts that violate
+    this policy.
+  </p>
+
+  <p>Depending on the circumstances, enforcement may include:</p>
+
+  <ul>
+    <li>Removal of prohibited content.</li>
+    <li>Restriction of account functionality.</li>
+    <li>Suspension of an account.</li>
+    <li>Permanent termination of an account.</li>
+    <li>Preservation of relevant information where legally appropriate.</li>
+    <li>Reporting suspected illegal activity to appropriate authorities or
+        organisations where required or permitted by applicable law.</li>
+  </ul>
+
+  <p>
+    We may take immediate action when content or behaviour presents a serious
+    risk to the safety of a child or another member of the community.
+  </p>
+
+  <h2>6. Cooperation With Authorities</h2>
+
+  <p>
+    Where we become aware of suspected child sexual exploitation or abuse,
+    Luvart may cooperate with appropriate law-enforcement agencies and other
+    relevant authorities in accordance with applicable law.
+  </p>
+
+  <p>
+    Where legally required, we may preserve and disclose relevant information
+    to assist an investigation or protect a child from further harm.
+  </p>
+
+  <h2>7. Safety of Minors</h2>
+
+  <p>
+    Luvart does not permit adults to use the platform to sexually exploit,
+    groom, solicit, or otherwise abuse children.
+  </p>
+
+  <p>
+    Users should never request or share sexual images of a minor, arrange
+    sexual contact with a minor, or encourage a minor to engage in sexually
+    explicit activity.
+  </p>
+
+  <p>
+    If you believe a child may be in immediate danger, contact the appropriate
+    emergency or law-enforcement services in your jurisdiction.
+  </p>
+
+  <span class="section-label">Community Responsibility</span>
+
+  <h2>8. Everyone Has a Role in Keeping Luvart Safe</h2>
+
+  <p>
+    Protecting children from sexual exploitation requires the participation
+    of the entire community.
+  </p>
+
+  <p>
+    If you encounter behaviour that appears to involve grooming, sexual
+    exploitation, or abuse of a child, do not engage with the individual or
+    redistribute the material. Report the account or content to Luvart as soon
+    as possible.
+  </p>
+
+  <h2>9. False Reports &amp; Abuse of Reporting Tools</h2>
+
+  <p>
+    Reports should be made honestly and in good faith. Deliberately submitting
+    fraudulent reports, impersonating another person, or abusing reporting
+    mechanisms to harass another user may itself result in enforcement action.
+  </p>
+
+  <p>
+    This does not prevent users from making good-faith reports when they are
+    uncertain about whether content violates this policy.
+  </p>
+
+  <span class="section-label">Contact</span>
+
+  <h2>10. Contact Luvart</h2>
+
+  <p>
+    Questions or urgent concerns relating to child safety can be directed to:
+  </p>
+
+  <p>
+    <strong>Luvart Safety Team</strong><br>
+    The Luvart Platforms (Pty) Ltd<br>
+    Email:
+    <a href="mailto:khomotjo.ngobeni@luchsia.com">
+      khomotjo.ngobeni@luchsia.com
+    </a>
+  </p>
+
+  <p>
+    For urgent reports, please use the subject line:
+    <strong>URGENT SAFETY — CSAE</strong>
+  </p>
+
+  <hr>
+
+  <div class="closing-note">
+    <p>
+      Luvart has zero tolerance for child sexual abuse and exploitation.
+      Protecting children and maintaining a safe community is a fundamental
+      responsibility of our platform and our team.
+    </p>
+  </div>
+
+  <p>
+    This policy may be updated from time to time as Luvart's safety practices,
+    legal obligations, and community needs evolve.
+  </p>
+
+</div>
+
+<footer class="legal-footer">
+
+  <div class="legal-footer-brand">
+    THE LUVART PLATFORMS (PTY) LTD
+  </div>
+
+  <div class="legal-footer-links">
+    <a href="privacy-policy.html">
+      Privacy Policy
+    </a>
+
+    <a href="terms-of-service.html">
+      Terms of Service
+    </a>
+
+    <a href="community-guidelines.html">
+      Community Guidelines
+    </a>
+
+    <a href="safety-security-faq.html">
+      Safety &amp; Security FAQ
+    </a>
+
+    <a href="csae-policy.html">
+      CSAE Policy
+    </a>
+
+    <a href="delete-account.html">
+      Account Deletion
+    </a>
+  </div>
+
+  <div class="legal-footer-copy">
+    © 2026 THE LUVART PLATFORMS (PTY) LTD. All rights reserved.
+  </div>
+
+</footer>
+
+</body>
+</html>
