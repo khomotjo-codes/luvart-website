@@ -380,21 +380,29 @@
   .principle-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 0.3rem; }
   .principle-body { font-size: 0.85rem; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
 
-  /* FOUNDER */
+  /* MONETISATION TRANSPARENCY */
+  .monetisation { background: var(--warm-white); }
+  .monetisation-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .monetisation-card { padding: 1.75rem; border-radius: 2px; }
+  .monetisation-yes { background: var(--sand); border-left: 3px solid var(--rust); }
+  .monetisation-no { background: var(--earth); border-left: 3px solid var(--gold); }
+  .monetisation-label { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+  .monetisation-yes .monetisation-label { color: var(--rust); }
+  .monetisation-no .monetisation-label { color: var(--gold); }
+  .monetisation-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .monetisation-list li { font-size: 0.86rem; font-weight: 300; line-height: 1.6; padding-left: 1.25rem; position: relative; }
+  .monetisation-yes .monetisation-list li { color: var(--text-muted); }
+  .monetisation-no .monetisation-list li { color: rgba(245,230,200,0.7); }
+  .monetisation-list li::before { content: '—'; position: absolute; left: 0; }
+  .monetisation-yes .monetisation-list li::before { color: var(--rust); }
+  .monetisation-no .monetisation-list li::before { color: var(--gold); }
+
+  /* FOUNDER / TEAM */
   .founder { background: var(--earth); }
   .founder .t-eyebrow { color: var(--gold); }
   .founder .t-heading { color: var(--warm-white); margin: 0.75rem 0 1rem; }
   .founder .t-body { color: rgba(245,230,200,0.6); margin-bottom: 2rem; }
 
-  .founder-card { border: 1px solid rgba(245,230,200,0.1); padding: 1.75rem; border-radius: 2px; }
-  .founder-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--warm-white); margin-bottom: 0.25rem; }
-  .founder-role { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; }
-  .founder-bio { font-size: 0.88rem; font-weight: 300; color: rgba(245,230,200,0.6); line-height: 1.75; margin-bottom: 1.5rem; }
-  .founder-links { display: flex; flex-direction: column; gap: 0.5rem; }
-  .founder-link { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(245,230,200,0.35); text-decoration: none; transition: color 0.2s; }
-  .founder-link:active { color: var(--gold); }
-
-  /* TEAM (formerly FOUNDER) */
   .team-grid { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
   .team-card { border: 1px solid rgba(245,230,200,0.1); padding: 1.5rem; border-radius: 2px; }
   .team-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--warm-white); margin-bottom: 0.2rem; }
@@ -474,6 +482,7 @@
     .footer-cols { grid-template-columns: repeat(3, 1fr); }
     .footer-bottom { flex-direction: row; justify-content: space-between; }
     .team-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .monetisation-grid { display: grid; grid-template-columns: 1fr 1fr; }
   }
 
   @media (min-width: 1024px) {
@@ -482,7 +491,7 @@
     .hamburger { display: none; }
     .nav-cta-mobile { display: none; }
     .nav-inner { padding: 0 4rem; height: 64px; }
-    .nav-links-desktop { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+    .nav-links-desktop { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links-desktop a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links-desktop a:hover { color: var(--rust); }
     .nav-links-desktop .nav-cta-desktop { background: var(--rust); color: white; padding: 0.55rem 1.3rem; border-radius: 2px; }
@@ -527,6 +536,7 @@
     <a href="#" class="nav-logo">Luvart</a>
     <ul class="nav-links-desktop">
       <li><a href="#about">About</a></li>
+      <li><a href="#transparency">Transparency</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#setso">Setso</a></li>
       <li><a href="#founder">Team</a></li>
@@ -544,6 +554,7 @@
 <!-- MOBILE DRAWER -->
 <div class="nav-drawer" id="drawer">
   <a href="#about" class="drawer-link" onclick="closeDrawer()">About</a>
+  <a href="#transparency" class="drawer-link" onclick="closeDrawer()">Transparency</a>
   <a href="#products" class="drawer-link" onclick="closeDrawer()">Products</a>
   <a href="#setso" class="drawer-link" onclick="closeDrawer()">Setso</a>
   <a href="#founder" class="drawer-link" onclick="closeDrawer()">Team</a>
@@ -577,7 +588,7 @@
     <span class="marquee-dot"></span>
     <span>Different is the strength, not the exception</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No homogenising.</span>
+    <span>No surveillance ads. No personal data sold. No homogenising.</span>
     <span class="marquee-dot"></span>
     <span>Your language is not a translation of the real one</span>
     <span class="marquee-dot"></span>
@@ -585,7 +596,7 @@
     <span class="marquee-dot"></span>
     <span>Different is the strength, not the exception</span>
     <span class="marquee-dot"></span>
-    <span>No ads. No tracking. No homogenising.</span>
+    <span>No surveillance ads. No personal data sold. No homogenising.</span>
     <span class="marquee-dot"></span>
   </div>
 </div>
@@ -608,7 +619,7 @@
       </div>
       <div class="mission-card mission-card-rust">
         <div class="mission-card-title" style="color: var(--warm-white);">Luvart connects</div>
-        <div class="mission-card-body">No ads. No data selling. No third-party tracking. Just culture, talking to itself and to the world, on its own terms.</div>
+        <div class="mission-card-body">No surveillance advertising. No personal data selling. No third-party tracking. Contextual ads by default — behavioural ads only with your explicit consent. Aggregated, anonymised cultural insights are community-owned. Just culture, talking to itself and to the world, on its own terms.</div>
       </div>
     </div>
   </div>
@@ -686,7 +697,7 @@
       <span class="product-eyebrow">Cultural Social Platform</span>
       <div class="product-name">Luvart</div>
       <div class="product-tagline">Built for the Culture. Built by the Culture.</div>
-      <div class="product-desc">A privacy-first cultural social platform where your language, your rituals, and your community's real, everyday life come first — for every community on earth. Ad-free. No data selling. No tracking.</div>
+      <div class="product-desc">A privacy-first cultural social platform where your language, your rituals, and your community's real, everyday life come first — for every community on earth. No surveillance advertising. No personal data selling. Contextual ads by default. Behavioural ads only with your explicit consent.</div>
       <a href="#waitlist" class="product-link">Join the Waitlist →</a>
     </div>
     <div class="product-card product-setso reveal">
@@ -793,21 +804,21 @@
         <span class="principle-num">01</span>
         <div>
           <div class="principle-title">Mission-Alignment is Non-Negotiable</div>
-          <div class="principle-body">Every decision must feel like a natural extension of the platform's purpose. No exploitative ads. No compromises.</div>
+          <div class="principle-body">Every decision must feel like a natural extension of the platform's purpose. No surveillance advertising. No personal data selling. No compromises.</div>
         </div>
       </div>
       <div class="principle">
         <span class="principle-num">02</span>
         <div>
           <div class="principle-title">Community-First</div>
-          <div class="principle-body">We monetise around the community, not from it. Trust is the most valuable asset we have.</div>
+          <div class="principle-body">We monetise around the community, not from it. Contextual ads, aggregated insights, and B2B services — never by selling personal data or surveilling users. Trust is the most valuable asset we have.</div>
         </div>
       </div>
       <div class="principle">
         <span class="principle-num">03</span>
         <div>
           <div class="principle-title">Data Sovereignty</div>
-          <div class="principle-body">Your stories belong to you. Your community's knowledge belongs to your community. We are a vessel, not an owner.</div>
+          <div class="principle-body">Your personal data belongs to you and is never sold. Aggregated, anonymised cultural insights are opt-in and community-owned. We are a vessel, not an owner.</div>
         </div>
       </div>
       <div class="principle">
@@ -817,6 +828,44 @@
           <div class="principle-body">I am because we are. Different communities, seen on their own terms, building one shared sense of belonging — that is the architectural principle behind every product decision we make.</div>
         </div>
       </div>
+      <div class="principle">
+        <span class="principle-num">05</span>
+        <div>
+          <div class="principle-title">Transparency by Default</div>
+          <div class="principle-body">We publish how we make money, what data we collect, and how aggregated insights are created. Every revenue stream is disclosed. Every user can see exactly how the platform sustains itself.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY / MONETISATION -->
+<section class="monetisation section" id="transparency">
+  <div class="reveal">
+    <p class="t-eyebrow" style="color: var(--rust); margin-bottom: 0.75rem;">Transparency</p>
+    <h2 class="t-heading" style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem;">How Luvart sustains itself</h2>
+    <p class="t-body" style="color: var(--text-muted); max-width: 640px;">We believe you should know exactly how the platform makes money — and what we will never do to make it. Here is the full picture.</p>
+  </div>
+  <div class="monetisation-grid reveal">
+    <div class="monetisation-card monetisation-yes">
+      <div class="monetisation-label">What we do</div>
+      <ul class="monetisation-list">
+        <li>Contextual advertising — ads based on the content you're viewing, not on who you are</li>
+        <li>Behavioural advertising — only with your explicit, revocable consent</li>
+        <li>Aggregated, anonymised cultural insights — sold to academic institutions, brands, and tourism boards, never linked to individuals</li>
+        <li>B2B services — Verified Circles, Luchsia infrastructure, Setso licensing</li>
+        <li>Marketplace commissions and Premium subscriptions</li>
+      </ul>
+    </div>
+    <div class="monetisation-card monetisation-no">
+      <div class="monetisation-label">What we will never do</div>
+      <ul class="monetisation-list">
+        <li>Sell your personal data — ever</li>
+        <li>Surveil you — no shadow profiles, no cross-site tracking, no third-party data brokers</li>
+        <li>Show you behavioural ads without your consent</li>
+        <li>Sell insights that could identify you or your community</li>
+        <li>Use your content to train external AI models without your permission</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -877,6 +926,7 @@
   <div class="legal-title">Legal</div>
   <div class="legal-links">
   <a href="legal/privacy-policy.html">Privacy Policy</a>
+  <a href="legal/advertising-and-data.html">Advertising &amp; Data</a>
   <a href="legal/terms-of-service.html">Terms of Service</a>
   <a href="legal/community-guidelines.html">Community Guidelines</a>
   <a href="legal/safety-security-faq.html">Safety &amp; Security FAQ</a>
@@ -911,6 +961,7 @@
      <div class="footer-col-title">Legal</div>
       <ul class="footer-col-links">
         <li><a href="legal/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="legal/advertising-and-data.html">Advertising &amp; Data</a></li>
         <li><a href="legal/terms-of-service.html">Terms of Service</a></li>
         <li><a href="legal/community-guidelines.html">Community Guidelines</a></li>
         <li><a href="legal/csae-policy.html">CSAE Policy</a></li>
